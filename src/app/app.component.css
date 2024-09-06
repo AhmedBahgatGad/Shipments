@@ -1,0 +1,9 @@
+main {
+  margin-left: 80px; /* Matches sidebar width */
+  padding: 20px;
+}
+
+.sidebar-wrapper {
+  width: 80px;
+}
+
