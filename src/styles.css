@@ -11,15 +11,15 @@ body {
 :root {
   --primary-color: #296589;
   --secondary-color: #499cc3;
-  --main-bg-color:#eeeeee;
+  --third-color: #ef5160;
+  --main-bg-color: #eeeeee;
 }
-.main-bg{
-    background-color: var(--main-bg-color);
+.main-bg {
+  background-color: var(--main-bg-color);
 }
 .btn-main {
   background-color: var(--primary-color);
 }
-.btn-main:hover{
-    background-color: var(--secondary-color);
+.btn-main:hover {
+  background-color: var(--secondary-color);
 }
-
