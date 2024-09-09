@@ -1,5 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { TableEmployeesComponent } from './components/table-employees/table-employees.component';
+import { AddemployeeComponent } from './components/addemployee/addemployee.component';
+import { AddcityComponent } from './components/addcity/addcity.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { LoginComponent } from './components/login/login.component';
@@ -10,6 +13,9 @@ export const routes: Routes = [
         children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
+            { path: 'employees', component: TableEmployeesComponent },
+            { path: 'addemployee', component: AddemployeeComponent },
+            { path: 'addcity', component: AddcityComponent },
         ]
     },
     {
@@ -17,5 +23,4 @@ export const routes: Routes = [
         children: [
             { path: 'login', component: LoginComponent, title: 'login' }
         ]
-    }
-];
+    }]
