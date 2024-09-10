@@ -1,0 +1,9 @@
+hr{
+    color: var(--primary-color);
+}
+h4{
+    color: var(--primary-color);
+}
+label{
+    color: var(--secondary-color);
+}

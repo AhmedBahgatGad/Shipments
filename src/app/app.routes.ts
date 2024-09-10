@@ -7,6 +7,7 @@ import { BlankLayoutComponent } from './components/blank-layout/blank-layout.com
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './components/shared/guards/auth.guard';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 export const routes: Routes = [
     {
@@ -17,6 +18,7 @@ export const routes: Routes = [
             { path: 'employees', component: TableEmployeesComponent, title:'Employees' },
             { path: 'addemployee', component: AddemployeeComponent, title:'Add Employees' },
             { path: 'addcity', component: AddcityComponent, title:'Add City' },
+            { path: 'addorder', component: AddOrderComponent, title:'Add Order' },
         ]
     },
     {

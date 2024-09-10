@@ -21,7 +21,6 @@ export class LoginComponent {
   msgError: string = '';
   isLoading: boolean = false;
   handleForm(): void {
-    console.log(this.loginForm.value);
     
     if (this.loginForm.valid) {
       this.isLoading = true;
