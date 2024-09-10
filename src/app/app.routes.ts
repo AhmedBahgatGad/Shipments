@@ -6,6 +6,9 @@ import { AddcityComponent } from './components/addcity/addcity.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { LoginComponent } from './components/login/login.component';
+import { AddDeliveryManComponent } from './components/add-delivery-man/add-delivery-man.component';
+import { PermissionComponent } from './components/permission/permission.component';
+import { BranchesComponent } from './components/branches/branches.component';
 
 export const routes: Routes = [
     {
@@ -16,6 +19,9 @@ export const routes: Routes = [
             { path: 'employees', component: TableEmployeesComponent, title:'Employees' },
             { path: 'addemployee', component: AddemployeeComponent, title:'Add Employees' },
             { path: 'addcity', component: AddcityComponent, title:'Add City' },
+            { path: 'addDeliveryMan', component: AddDeliveryManComponent, title:'Add Delivery Man' },
+            { path: 'permission', component: PermissionComponent, title:'permission' },
+            { path: 'branches', component: BranchesComponent, title:'branches' },
         ]
     },
     {
