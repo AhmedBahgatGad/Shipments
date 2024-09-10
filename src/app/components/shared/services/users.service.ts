@@ -24,4 +24,12 @@ export class UsersService {
       return of();
     }
   }
+  loginUser(data:IUser){
+    if(data.email == this.users.email && data.password == this.users.password){
+      return true;
+    }
+    else{
+      return false
+    }
+  }
 }

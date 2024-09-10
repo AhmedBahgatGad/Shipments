@@ -9,10 +9,12 @@ import { LoginComponent } from './components/login/login.component';
 import { AddDeliveryManComponent } from './components/add-delivery-man/add-delivery-man.component';
 import { PermissionComponent } from './components/permission/permission.component';
 import { BranchesComponent } from './components/branches/branches.component';
+import { authGuard } from './components/shared/guards/auth.guard';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 export const routes: Routes = [
     {
-        path: '', component: BlankLayoutComponent,
+        path: '', canActivate:[authGuard], component: BlankLayoutComponent,
         children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
@@ -22,6 +24,7 @@ export const routes: Routes = [
             { path: 'addDeliveryMan', component: AddDeliveryManComponent, title:'Add Delivery Man' },
             { path: 'permission', component: PermissionComponent, title:'permission' },
             { path: 'branches', component: BranchesComponent, title:'branches' },
+            { path: 'addorder', component: AddOrderComponent, title:'Add Order' },
         ]
     },
     {
