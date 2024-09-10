@@ -6,10 +6,11 @@ import { AddcityComponent } from './components/addcity/addcity.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { LoginComponent } from './components/login/login.component';
+import { authGuard } from './components/shared/guards/auth.guard';
 
 export const routes: Routes = [
     {
-        path: '', component: BlankLayoutComponent,
+        path: '', canActivate:[authGuard], component: BlankLayoutComponent,
         children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
