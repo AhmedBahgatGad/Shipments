@@ -1,0 +1,265 @@
+<div class="container">
+  <h4 class="my-4 ms-2 fs-1 text-center">Add Order</h4>
+
+  <div class="container rounded-4 p-5 m-auto bg-white shadow">
+    <form [formGroup]="orderForm" (ngSubmit)="handleForm()">
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="orderTypeInput" class="form-label">Order Type :</label>
+          <select
+            name="orderType"
+            class="form-select"
+            id="orderTypeInput"
+            formControlName="orderType"
+          >
+            <option value="branch">Branch</option>
+            <option value="company">Company</option>
+            <option value="specific_place">Specific Place</option>
+          </select>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="clientName" class="form-label">Client Name :</label>
+          <input
+            type="text"
+            class="form-control"
+            id="clientName"
+            formControlName="clientName"
+            #inputclientName
+          />
+          @if ( orderForm.get('clientName')?.errors &&
+          (orderForm.get('clientName')?.touched || inputclientName.value.length
+          > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (orderForm.get('clientName')?.getError('required')) {
+            <p>Client Name Required</p>
+            }
+          </div>
+          }
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="phone1" class="form-label">Phone Number :</label>
+          <input
+            type="number"
+            class="form-control"
+            id="phone1"
+            formControlName="phone1"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="phone2" class="form-label">Phone Number 2 :</label>
+          <input
+            type="number"
+            class="form-control"
+            id="phone2"
+            formControlName="phone2"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="email" class="form-label">Email :</label>
+          <input
+            #inputEmail
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+          @if ( orderForm.get('email')?.errors &&
+          (orderForm.get('email')?.touched || inputEmail.value.length > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (orderForm.get('email')?.getError('required')) {
+            <p>Email Required</p>
+            } @if (orderForm.get('email')?.getError('email')) {
+            <p>Email Invalid</p>
+            }
+          </div>
+          }
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="governrate" class="form-label">Governrate : </label>
+          <select
+            name="governrate"
+            id="governrate"
+            class="form-select"
+            formControlName="governrate"
+          >
+            @for (governrate of governrates; track $index) {
+            <option [value]="governrate">{{ governrate }}</option>
+            }
+          </select>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="city" class="form-label">City : </label>
+          <select
+            name="city"
+            id="city"
+            class="form-select"
+            formControlName="city"
+          >
+            @for (city of cities; track $index) {
+            <option [value]="city">{{ city }}</option>
+            }
+          </select>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="village" class="form-label">Village & Street :</label>
+          <input
+            type="text"
+            class="form-control"
+            id="village"
+            formControlName="village"
+          />
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="toVillage"
+              formControlName="toVillage"
+            />
+            <label class="form-check-label" for="toVillage"
+              >Deliver To Village</label
+            >
+          </div>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="shipingTypeInput" class="form-label"
+            >Shiping Type :</label
+          >
+          <select
+            name="shipingType"
+            class="form-select"
+            id="shipingTypeInput"
+            formControlName="shipingType"
+          >
+            <option value="regular">Regular</option>
+            <option value="in24h">In 24 Hour</option>
+            <option value="in15d">In 15 Day</option>
+          </select>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="paymentTypeInput" class="form-label"
+            >Payment Type :</label
+          >
+          <select
+            name="paymentType"
+            class="form-select"
+            id="paymentTypeInput"
+            formControlName="paymentType"
+          >
+            <option value="cash">Cash</option>
+            <option value="visa">Visa</option>
+            <option value="package">Package for Package</option>
+          </select>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="branch" class="form-label">Branch :</label>
+          <select
+            name="branch"
+            class="form-select"
+            id="branch"
+            formControlName="branch"
+          >
+            @for (branch of branches; track $index) {
+            <option [value]="branch">{{ branch }}</option>
+            }
+          </select>
+        </div>
+        <hr class="my-2" />
+        <h4 class="my-2">Add Product</h4>
+        <form [formGroup]="productForm" class="row" (ngSubmit)="addProduct()">
+          <div class="mb-3 col-md-4">
+            <label for="productName" class="form-label">Product Name :</label>
+            <input
+              #productName
+              type="text"
+              class="form-control"
+              id="productName"
+              formControlName="productName"
+            />
+          </div>
+          <div class="mb-3 col-md-4">
+            <label for="productQuantity" class="form-label">Quantity :</label>
+            <input
+              #productQuantity
+              type="number"
+              class="form-control"
+              id="productQuantity"
+              formControlName="productQuantity"
+            />
+          </div>
+          <div class="mb-3 col-md-4">
+            <label for="productWeight" class="form-label">Weight :</label>
+            <input
+              #productWeight
+              type="number"
+              class="form-control"
+              id="productWeight"
+              formControlName="productWeight"
+            />
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Add Order</button>
+          </div>
+        </form>
+
+        <div class="mb-3 col-md-6">
+          <label for="orderCost" class="form-label">Order Cost :</label>
+          <input
+            #orderCost
+            type="number"
+            class="form-control"
+            id="orderCost"
+            formControlName="orderCost"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="totalWeight" class="form-label">Total Weight :</label>
+          <input
+            #totalWeight
+            type="number"
+            class="form-control"
+            id="totalWeight"
+            formControlName="totalWeight"
+          />
+        </div>
+        <div class="mb-3 col-md-12">
+          <label for="notes" class="form-label">Notes :</label>
+          <textarea
+            #notes
+            type="number"
+            class="form-control"
+            id="notes"
+            formControlName="notes"
+          >
+          </textarea>
+        </div>
+
+        <hr class="my-2" />
+        <h4 class="my-2">Merchant Data</h4>
+        <div class="mb-3 col-md-6">
+          <label for="merchantPhone" class="form-label">Phone Number :</label>
+          <input
+            #merchantPhone
+            type="number"
+            class="form-control"
+            id="merchantPhone"
+            formControlName="merchantPhone"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="merchantAddress" class="form-label">Address :</label>
+          <input
+            #merchantAddress
+            type="text"
+            class="form-control"
+            id="merchantAddress"
+            formControlName="merchantAddress"
+          />
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

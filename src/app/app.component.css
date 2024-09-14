@@ -1,9 +1,10 @@
 main {
-  margin-left: 80px; /* Matches sidebar width */
+  margin-left: 80px;
   padding: 20px;
+  background-color: var(--main-bg-color);
+  height: 100vh;
 }
 
 .sidebar-wrapper {
   width: 80px;
 }
-
