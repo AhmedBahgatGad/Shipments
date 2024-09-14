@@ -1,3 +1,29 @@
-div{
-    height: 200vh;
+h4 {
+  color: var(--primary-color);
+}
+p {
+  color: var(--secondary-color);
+}
+table {
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  thead {
+    --bs-table-bg: var(--secondary-color);
+    --bs-table-color: white;
+    --bs-table-border-radius: 50;
+    font-family: sans-serif;
+    font-size: 23px;
+  }
+
+  td {
+    padding: 5px;
+  }
+}
+.border-left {
+  border-radius: 15px 0 0;
+}
+
+.border-right {
+  border-radius: 0 15px 0 0;
 }
