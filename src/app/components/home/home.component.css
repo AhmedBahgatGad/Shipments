@@ -1,8 +1,14 @@
-h4 {
+h1 {
   color: var(--primary-color);
+  margin: 0 0 2rem 5rem;
+  font-weight: 600;
+  /* font-size: 45px; */
+  margin-top: -2rem;
+  font-family: roboto;
 }
 p {
   color: var(--secondary-color);
+  margin: 0 0 0.75em 5rem;
 }
 table {
   margin: auto;
@@ -26,4 +32,21 @@ table {
 
 .border-right {
   border-radius: 0 15px 0 0;
+}
+
+.row {
+  margin-left: 2rem;
+  width: 85%;
+}
+.container-fluid {
+  margin-left: 1px;
+}
+.tab {
+  margin-left: 5rem;
+  width: 95%;
+}
+
+.owl-nav {
+  margin-top: -60px;
+  margin-left: -35px;
 }

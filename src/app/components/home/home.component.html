@@ -1,95 +1,95 @@
-<div class="container py-5">
-  <h4 class="fs-1">Shipping List</h4>
+<div class="container-fluid py-5">
+  <h1>Shipping List</h1>
   <p>Providing flexible, Improved service levels, and accelerated delivery</p>
   <div class="row">
     <div class="col-md-6">
       <owl-carousel-o [options]="customOptions">
-          <ng-template carouselSlide>
-            <div class="row g-2">
-              @for (slide of slide1; track $index) {
-                <div class="col-md-6">
-                  <div class="card rounded-4">
-                    <div class="card-body">
-                      <div
-                        class="d-flex align-items-center justify-content-between"
-                      >
-                        <h4 class="card-title fs-4">{{slide.title}}</h4>
-                        <i [class]="slide.icon"></i>
-                      </div>
-                      <span class="card-text d-block fs-3 fw-bold mb-3">
-                        {{slide.count}}
-                      </span>
-                      <div
-                        class="d-flex align-items-center justify-content-between"
-                      >
-                        <p class="mb-0">+{{slide.total}} last month</p>
-                        <a href="#" class="btn btn-primary">See More..</a>
-                      </div>
-                    </div>
+        <ng-template carouselSlide>
+          <div class="row g-2">
+            @for (slide of slide1; track $index) {
+            <div class="col-md-6">
+              <div class="card rounded-4">
+                <div class="card-body">
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <h4 class="card-title fs-4">{{ slide.title }}</h4>
+                    <i [class]="slide.icon"></i>
+                  </div>
+                  <span class="card-text d-block fs-3 fw-bold mb-3">
+                    {{ slide.count }}
+                  </span>
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <p class="mb-0">+{{ slide.total }} last month</p>
+                    <a href="#" class="btn btn-primary">See More..</a>
                   </div>
                 </div>
-              }
+              </div>
             </div>
-          </ng-template>
-          <ng-template carouselSlide>
-            <div class="row g-2">
-              @for (slide of slide2; track $index) {
-                <div class="col-md-6">
-                  <div class="card rounded-4">
-                    <div class="card-body">
-                      <div
-                        class="d-flex align-items-center justify-content-between"
-                      >
-                        <h4 class="card-title fs-4">{{slide.title}}</h4>
-                        <i [class]="slide.icon"></i>
-                      </div>
-                      <span class="card-text d-block fs-3 fw-bold mb-3">
-                        {{slide.count}}
-                      </span>
-                      <div
-                        class="d-flex align-items-center justify-content-between"
-                      >
-                        <p class="mb-0">+{{slide.total}} last month</p>
-                        <a href="#" class="btn btn-primary">See More..</a>
-                      </div>
-                    </div>
+            }
+          </div>
+        </ng-template>
+        <ng-template carouselSlide>
+          <div class="row g-2">
+            @for (slide of slide2; track $index) {
+            <div class="col-md-6">
+              <div class="card rounded-4">
+                <div class="card-body">
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <h4 class="card-title fs-4">{{ slide.title }}</h4>
+                    <i [class]="slide.icon"></i>
+                  </div>
+                  <span class="card-text d-block fs-3 fw-bold mb-3">
+                    {{ slide.count }}
+                  </span>
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <p class="mb-0">+{{ slide.total }} last month</p>
+                    <a href="#" class="btn btn-primary">See More..</a>
                   </div>
                 </div>
-              }
+              </div>
             </div>
-          </ng-template>
-          <ng-template carouselSlide>
-            <div class="row g-2">
-              @for (slide of slide3; track $index) {
-                <div class="col-md-6">
-                  <div class="card rounded-4">
-                    <div class="card-body">
-                      <div
-                        class="d-flex align-items-center justify-content-between"
-                      >
-                        <h4 class="card-title fs-4">{{slide.title}}</h4>
-                        <i [class]="slide.icon"></i>
-                      </div>
-                      <span class="card-text d-block fs-3 fw-bold mb-3">
-                        {{slide.count}}
-                      </span>
-                      <div
-                        class="d-flex align-items-center justify-content-between"
-                      >
-                        <p class="mb-0">+{{slide.total}} last month</p>
-                        <a href="#" class="btn btn-primary">See More..</a>
-                      </div>
-                    </div>
+            }
+          </div>
+        </ng-template>
+        <ng-template carouselSlide>
+          <div class="row g-2">
+            @for (slide of slide3; track $index) {
+            <div class="col-md-6">
+              <div class="card rounded-4">
+                <div class="card-body">
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <h4 class="card-title fs-4">{{ slide.title }}</h4>
+                    <i [class]="slide.icon"></i>
+                  </div>
+                  <span class="card-text d-block fs-3 fw-bold mb-3">
+                    {{ slide.count }}
+                  </span>
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <p class="mb-0">+{{ slide.total }} last month</p>
+                    <a href="#" class="btn btn-primary">See More..</a>
                   </div>
                 </div>
-              }
+              </div>
             </div>
-          </ng-template>
+            }
+          </div>
+        </ng-template>
       </owl-carousel-o>
     </div>
     <div class="col-md-6"></div>
   </div>
-  <div class="container bg-white p-4 rounded-4 shadow">
+  <div class="container-fluid tab bg-white p-4 rounded-4 shadow">
     <div class="row">
       <div class="col-md-6 d-flex">
         <i class="fa-regular fa-newspaper fa-2x me-4"></i>
@@ -122,14 +122,17 @@
         <tbody>
           @for (order of filteredData; track $index) {
           <tr>
-            <td>{{$index}}</td>
-            <td>{{order.trackingNumber}}</td>
-            <td>{{order.date}}</td>
-            <td>{{order.clientName}} <p>{{order.phone}}</p></td>
-            <td>{{order.governrate}}</td>
-            <td>{{order.city}}</td>
-            <td>{{order.cost}}$</td>
-            <td>{{order.status}}</td>
+            <td>{{ $index }}</td>
+            <td>{{ order.trackingNumber }}</td>
+            <td>{{ order.date }}</td>
+            <td>
+              {{ order.clientName }}
+              <p>{{ order.phone }}</p>
+            </td>
+            <td>{{ order.governrate }}</td>
+            <td>{{ order.city }}</td>
+            <td>{{ order.cost }}$</td>
+            <td>{{ order.status }}</td>
           </tr>
           }
         </tbody>
