@@ -1,65 +1,118 @@
-   <div class="sidebar">
-    <div class="logo">
-      <div class="bg-white d-flex justify-content-center rounded-circle"><img src="logo.png" alt="Logo"></div>
-      <span>My App</span>
+<div class="sidebar">
+  <div class="logo">
+    <div class="bg-white d-flex justify-content-center rounded-circle">
+      <img src="logo.png" alt="Logo" />
     </div>
-    
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a (click)="logOut()" routerLink="login" routerLinkActive="activelink" class="nav-link" title="logout">
-          <i class="fa-regular fa-user"></i>
-          <span class="m-auto">{{user.name}}</span>
-        </a>
-      </li>
-      <hr class="m-0">
-      <li class="nav-item">
-        <a routerLink="home" routerLinkActive="activeLink" class="nav-link" title="Home">
-          <i class="fa-solid fa-home"></i>
-          <span class="m-auto">Home</span>
-        </a>
-      </li>
-        <li class="nav-item">
-          <a routerLink="employees" routerLinkActive="activeLink" class="nav-link" title="Employees">
-            <i class="fa-solid fa-users"></i>
-              <span class="m-auto">Employees</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" routerLink="addMerchant" routerLinkActive="activeLink" title="Merchants">
-            <i class="fa-solid fa-store"></i>
-            <span class="m-auto">Merchants</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" routerLink="groups" routerLinkActive="activeLink" title="Groups">
-            <i class="fa-solid fa-user-group"></i>
-            <span class="m-auto">Groups</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" routerLink="governrates" routerLinkActive="activeLink"  title="Governrate">
-            <i class="fa-solid fa-location-dot"></i>
-            <span class="m-auto">Governrate</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" routerLink="branches" routerLinkActive="activeLink" title="Branches">
-              <i class="fa-solid fa-code-branch"></i>
-              <span class="m-auto">Branches</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" routerLink="permissions" routerLinkActive="activeLink" title="Settings">
-            <i class="fa-solid fa-gear"></i>
-            <span class="m-auto">Permissions</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" routerLink="reports" routerLinkActive="activeLink" title="Reports">
-              <i class="fa-regular fa-file-lines"></i>
-              <span class="m-auto">Reports</span>
-          </a>
-        </li>
-    </ul>
+    <span>My App</span>
   </div>
-  
+
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a
+        (click)="logOut()"
+        routerLink="login"
+        routerLinkActive="activelink"
+        class="nav-link d-flex justify-content-start"
+        title="logout"
+      >
+        <i class="fa-regular fa-user"></i>
+        <span class="ps-1">{{ user.name }}</span>
+      </a>
+    </li>
+    <hr class="m-0" />
+    <li class="nav-item">
+      <a
+        routerLink="home"
+        routerLinkActive="activelink"
+        class="nav-link d-flex justify-content-start"
+        title="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="employees"
+        routerLinkActive="activelink"
+        class="nav-link d-flex justify-content-start"
+        title="Employees"
+      >
+        <i class="fa-solid fa-users"></i>
+        <span>Employees</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        href="#"
+        class="nav-link"
+        routerLink="addMerchant"
+        routerLinkActive="activeLink"
+        title="Merchants"
+      >
+        <i class="fa-solid fa-store"></i>
+        <span>Merchants</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        href="#"
+        class="nav-link"
+        routerLink="groups"
+        routerLinkActive="activeLink"
+        title="Groups"
+      >
+        <i class="fa-solid fa-user-group"></i>
+        <span>Groups</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        href="#"
+        class="nav-link ps-3"
+        routerLink="governrates"
+        routerLinkActive="activeLink"
+        title="Governrate"
+      >
+        <i class="fa-solid fa-location-dot"></i>
+        <span class="ps-3">Governrate</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        href="#"
+        class="nav-link ps-3"
+        routerLink="branches"
+        routerLinkActive="activeLink"
+        title="Branches"
+      >
+        <i class="fa-solid fa-code-branch"></i>
+        <span class="ps-3">Branches</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        href="#"
+        class="nav-link ps-3"
+        routerLink="permissions"
+        routerLinkActive="activeLink"
+        title="Settings"
+      >
+        <i class="fa-solid fa-gear"></i>
+        <span class="ps-2">Permissions</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        href="#"
+        class="nav-link ps-3"
+        routerLink="reports"
+        routerLinkActive="activeLink"
+        title="Reports"
+      >
+        <i class="fa-regular fa-file-lines"></i>
+        <span class="ps-3">Reports</span>
+      </a>
+    </li>
+  </ul>
+</div>

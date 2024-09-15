@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div>
-    <div class="head d-flex justify-content-between align-items-center mt-4">
+    <div class="d-flex justify-content-between align-items-center mt-4">
       <h1>Employees</h1>
 
       <p class="btn rounded-3">
@@ -23,8 +23,8 @@
           <th class="border-right">Setting</th>
         </tr>
       </thead>
-
-      <!-- <tbody>
+      <!--
+      <tbody>
         <tr>
           <td>1</td>
           <td>omar</td>
@@ -299,7 +299,8 @@
           <td><i class="fa-solid icon icon fa-toggle-on"></i></td>
           <td><i class="fa-solid icon icon fa-pen-to-square"></i></td>
         </tr>
-      </tbody> -->
+      </tbody>
+      -->
 
       <tbody>
         @for (employee of employees; track $index) {
@@ -308,6 +309,7 @@
           <td>{{ employee.name }}</td>
           <td>{{ employee.email }}</td>
           <td>{{ employee.username }}</td>
+          <!-- <td>{{ employee.Phone }}</td> -->
           <td>{{ employee.company_name }}</td>
           <td>{{ employee.role }}</td>
           <td><i class="fa-solid icon icon fa-toggle-on"></i></td>
