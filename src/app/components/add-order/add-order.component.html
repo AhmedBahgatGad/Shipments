@@ -165,42 +165,7 @@
         </div>
         <hr class="my-2" />
         <h4 class="my-2">Add Product</h4>
-        <!-- <form [formGroup]="productForm" class="row" (ngSubmit)="addProduct()">
-          <div class="mb-3 col-md-4">
-            <label for="productName" class="form-label">Product Name :</label>
-            <input
-              #productName
-              type="text"
-              class="form-control"
-              id="productName"
-              formControlName="productName"
-            />
-          </div>
-          <div class="mb-3 col-md-4">
-            <label for="productQuantity" class="form-label">Quantity :</label>
-            <input
-              #productQuantity
-              type="number"
-              class="form-control"
-              id="productQuantity"
-              formControlName="productQuantity"
-            />
-          </div>
-          <div class="mb-3 col-md-4">
-            <label for="productWeight" class="form-label">Weight :</label>
-            <input
-              #productWeight
-              type="number"
-              class="form-control"
-              id="productWeight"
-              formControlName="productWeight"
-            />
-          </div>
-          <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">Add Order</button>
-          </div>
-        </form> -->
-
+        
         <form [formGroup]="productForm" (ngSubmit)="addProduct()" class="row">
           <div class="mb-3 col-md-4">
             <label for="productName" class="form-label">Product Name :</label>

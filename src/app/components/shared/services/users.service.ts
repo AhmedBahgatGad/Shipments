@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { IUser } from '../Interfaces/iuser';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
   
-  constructor() { }
+  constructor(private _HttpClient: HttpClient) { }
+
+  token = localStorage.getItem('token');
+
+
+  myHeaders:any = new HttpHeaders({
+    'Authorization': `Bearer ${this.token} `
+  });
+
   users:IUser={
     id:1,
     name:'admin',
@@ -31,5 +40,16 @@ export class UsersService {
     else{
       return false
     }
+  }
+
+  login(data:object):Observable<any>{
+    return this._HttpClient.post('http://127.0.0.1:8000/api/login',data);
+  }
+
+
+  getUsers():Observable<any>{
+    return this._HttpClient.get('http://127.0.0.1:8000/api/users',{
+      headers: this.myHeaders
+    })
   }
 }

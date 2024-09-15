@@ -10,7 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
-export class SidebarComponent implements OnInit{
+export class SidebarComponent{
   constructor(private _UsersService:UsersService) {}
   user:IUser={
     id:0,
@@ -25,11 +25,9 @@ export class SidebarComponent implements OnInit{
         this.user = respone;
       },
       error:(err)=>{
-        console.log(err);
         
       }
     })
-    console.log(this.user);
     
   }
 logOut():void{
