@@ -8,18 +8,14 @@ input {
   background-color: #fff;
   color: #000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.4);
   width: 250px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  padding-left: 10px;
 }
 .dropdown-toggle::after {
   display: none;
-}
-
-.btn-link {
-  color: inherit;
-  padding: 0;
-  border: none;
-  background: none;
 }
 
 .container-fluid.rounded-4 {
@@ -32,6 +28,7 @@ input {
 .header {
   background-color: var(--secondary-color);
   color: white;
+  /* font-size: 20px; */
 }
 
 .left {

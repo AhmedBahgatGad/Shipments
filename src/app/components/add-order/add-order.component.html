@@ -1,5 +1,5 @@
 <div class="container">
-  <h4 class="my-4 ms-2 fs-1 text-center">Add Order</h4>
+  <h1 class="mt-4 mb-2 ms-3 fs-1">Add Order</h1>
 
   <div class="container rounded-4 p-5 m-auto bg-white shadow">
     <form [formGroup]="orderForm" (ngSubmit)="handleForm()">
@@ -165,7 +165,7 @@
         </div>
         <hr class="my-2" />
         <h4 class="my-2">Add Product</h4>
-        
+
         <form [formGroup]="productForm" (ngSubmit)="addProduct()" class="row">
           <div class="mb-3 col-md-4">
             <label for="productName" class="form-label">Product Name :</label>
@@ -195,21 +195,21 @@
             />
           </div>
           <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">Add Product</button>
+            <button type="submit" class="btn">Add Product</button>
           </div>
         </form>
 
         <!-- Products Table -->
         <div class="my-3">
           <h4>Product List</h4>
-          <table class="table table-bordered text-center">
+          <table class="table text-center">
             <thead>
               <tr>
-                <th>#</th>
+                <th class="left">#</th>
                 <th>Product Name</th>
                 <th>Quantity</th>
                 <th>Weight</th>
-                <th>Action</th>
+                <th class="right">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -230,7 +230,6 @@
                 </td>
               </tr>
               }
-
             </tbody>
           </table>
         </div>
@@ -291,7 +290,7 @@
       </div>
 
       <div class="d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn">Submit</button>
       </div>
     </form>
   </div>

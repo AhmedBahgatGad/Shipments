@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  /* padding-top: 20px; */
   transition: transform 0.1s ease, width 0.3s ease;
   overflow: hidden;
 }
@@ -107,7 +107,18 @@ ul li a span {
   text-align: left;
 }
 
-i::before {
-  width: 36.5px;
-  /* height: 34px; */
+.fa-person::before {
+  font-size: 40px;
+}
+.fa-file-lines::before {
+  font-size: 38px;
+}
+.fa-gear::before {
+  font-size: 33px;
+}
+.fa-code-branch::before {
+  font-size: 40px;
+}
+.fa-location-dot::before {
+  font-size: 40px;
 }
