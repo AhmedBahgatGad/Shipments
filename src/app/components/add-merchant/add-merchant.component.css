@@ -33,7 +33,7 @@ h1 {
   letter-spacing: 1px;
 }
 
-.container-fluid.p-5 {
+.container.p-5 {
   margin-top: 80px;
   background-color: white;
   padding-right: 50px;
