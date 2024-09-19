@@ -12,9 +12,11 @@
             id="orderTypeInput"
             formControlName="orderType"
           >
-            <option value="branch">Branch</option>
-            <option value="company">Company</option>
-            <option value="specific_place">Specific Place</option>
+            @for (option of orderTypeOptions; track $index) {
+            <option [value]="option" class="text-capitalize">
+              {{ option }}
+            </option>
+            }
           </select>
         </div>
         <div class="mb-3 col-md-6">
@@ -39,11 +41,20 @@
         <div class="mb-3 col-md-6">
           <label for="phone1" class="form-label">Phone Number :</label>
           <input
+            #phone1
             type="number"
             class="form-control"
             id="phone1"
             formControlName="phone1"
           />
+          @if ( orderForm.get('phone1')?.errors &&
+          (orderForm.get('phone1')?.touched || phone1.value.length > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (orderForm.get('phone1')?.getError('required')) {
+            <p>Client Phone Required</p>
+            }
+          </div>
+          }
         </div>
         <div class="mb-3 col-md-6">
           <label for="phone2" class="form-label">Phone Number 2 :</label>
@@ -130,9 +141,9 @@
             id="shipingTypeInput"
             formControlName="shipingType"
           >
-            <option value="regular">Regular</option>
-            <option value="in24h">In 24 Hour</option>
-            <option value="in15d">In 15 Day</option>
+            @for (item of shipingTypeOptions; track $index) {
+            <option [value]="item">{{ item }}</option>
+            }
           </select>
         </div>
         <div class="mb-3 col-md-6">
@@ -145,9 +156,9 @@
             id="paymentTypeInput"
             formControlName="paymentType"
           >
-            <option value="cash">Cash</option>
-            <option value="visa">Visa</option>
-            <option value="package">Package for Package</option>
+            @for (item of paymentTypeOptions; track $index) {
+            <option [value]="item">{{ item }}</option>
+            }
           </select>
         </div>
         <div class="mb-3 col-md-6">
@@ -170,6 +181,7 @@
           <div class="mb-3 col-md-4">
             <label for="productName" class="form-label">Product Name :</label>
             <input
+              #productName
               type="text"
               class="form-control"
               id="productName"
@@ -276,6 +288,15 @@
             id="merchantPhone"
             formControlName="merchantPhone"
           />
+          @if ( orderForm.get('merchantPhone')?.errors &&
+            (orderForm.get('merchantPhone')?.touched || merchantPhone.value.length
+            > 0) ) {
+            <div class="alert alert-danger mt-2">
+              @if (orderForm.get('merchantPhone')?.getError('required')) {
+              <p>Merchant Phone Required</p>
+            }
+          </div>
+            }
         </div>
         <div class="mb-3 col-md-6">
           <label for="merchantAddress" class="form-label">Address :</label>
@@ -286,9 +307,17 @@
             id="merchantAddress"
             formControlName="merchantAddress"
           />
+          @if ( orderForm.get('merchantAddress')?.errors &&
+          (orderForm.get('merchantAddress')?.touched || merchantAddress.value.length
+          > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (orderForm.get('merchantAddress')?.getError('required')) {
+            <p>Merchant Address Required</p>
+          }
+        </div>
+          }
         </div>
       </div>
-
       <div class="d-flex justify-content-end">
         <button type="submit" class="btn">Submit</button>
       </div>

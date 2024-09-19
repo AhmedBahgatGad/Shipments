@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     pullDrag: false,
     dots: false,
     navSpeed: 700,
+    autoWidth:true,
     navText: ['', ''],
     responsive: {
       0: {

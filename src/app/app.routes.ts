@@ -16,6 +16,7 @@ import { PermissionsComponent } from './components/permissions/permissions.compo
 import { AddDelivermanComponent } from './components/add-deliverman/add-deliverman.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { AddMerchantComponent } from './components/add-merchant/add-merchant.component';
+import { MerchantsComponent } from './components/merchants/merchants.component';
 
 export const routes: Routes = [
   {
@@ -60,6 +61,11 @@ export const routes: Routes = [
         path: 'addMerchant',
         component: AddMerchantComponent,
         title: 'Add Merchant',
+      },
+      {
+        path: 'merchant',
+        component: MerchantsComponent,
+        title: 'merchants',
       },
     ],
   },

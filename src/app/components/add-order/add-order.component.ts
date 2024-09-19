@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../shared/services/orders.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-order',
@@ -16,10 +17,14 @@ export class AddOrderComponent implements OnInit {
   cities: string[] = [];
   branches: string[] = [];
   productsArray: { productName: string, productQuantity: number, productWeight: number }[] = [];
-  constructor(private _OrdersService: OrdersService, private _FormBuilder: FormBuilder) { }
+
+  orderTypeOptions = ['branch', 'company', 'specific_place'];
+  shipingTypeOptions = ['regular', 'in24h', 'in15d'];
+  paymentTypeOptions = ['Visa', 'Cash', 'Package for Package'];
+  constructor(private _OrdersService: OrdersService, private _FormBuilder: FormBuilder, private _Router:Router) { }
   productForm!: FormGroup;
   products!: FormArray;
-  orderForm!:FormGroup;
+  orderForm!: FormGroup;
   ngOnInit(): void {
     this._OrdersService.getGovernrates().subscribe({
       next: (response) => {
@@ -44,32 +49,32 @@ export class AddOrderComponent implements OnInit {
     this.products = this._FormBuilder.array([]);
 
     this.orderForm = this._FormBuilder.group({
-      orderType: ['', Validators.required],
+      orderType: [this.orderTypeOptions[0], Validators.required],
       clientName: ['', Validators.required],
       phone1: ['', Validators.required],
       phone2: [''],
       email: ['', [Validators.required, Validators.email]],
-      governrate: ['', Validators.required],
-      city: ['', Validators.required],
+      governrate: [this.governrates[0], Validators.required],
+      city: [this.cities[0], Validators.required],
       village: [''],
       toVillage: [false],
-      shipingType: ['', Validators.required],
-      paymentType: ['', Validators.required],
-      branch: ['', Validators.required],
-      merchantPhone: [''],
-      merchantAddress: [''],
-      orderCost: [0, Validators.required],
-      totalWeight: [0, Validators.required],
+      shipingType: [this.shipingTypeOptions[0], Validators.required],
+      paymentType: [this.paymentTypeOptions[0], Validators.required],
+      branch: [this.branches[0], Validators.required],
+      merchantPhone: ['', Validators.required],
+      merchantAddress: ['', Validators.required],
+      orderCost: [1, Validators.required],
+      totalWeight: [1, Validators.required],
       notes: [''],
       products: this._FormBuilder.array([])
     });
     this.products = this.orderForm.get('products') as FormArray;
   }
-  
+
   handleForm() {
     if (this.orderForm.valid) {
       console.log(this.orderForm.value);
-
+      this._Router.navigate(['/home'])
     }
     else {
       this.orderForm.markAllAsTouched()

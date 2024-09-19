@@ -2,8 +2,7 @@
   <h1>Shipping List</h1>
   <p>Providing flexible, Improved service levels, and accelerated delivery</p>
   <div class="row">
-    <div class="col-md-6">
-      <owl-carousel-o [options]="customOptions">
+      <owl-carousel-o [options]="customOptions" class="col-md-8">
         <ng-template carouselSlide>
           <div class="row g-2">
             @for (slide of slide1; track $index) {
@@ -110,8 +109,7 @@
           </div>
         </ng-template>
       </owl-carousel-o>
-    </div>
-    <div class="col-md-6"></div>
+    <div class="col-md-4"></div>
   </div>
   <div class="container-fluid tab bg-white p-4 rounded-4 shadow">
     <div class="row">

@@ -2,128 +2,184 @@
   <h1 class="mt-3 mb-4 ms-2">Add Merchant</h1>
 
   <div class="container rounded-4 p-5 m-auto">
-    <form action="" class="d-grid">
+    <form [formGroup]="merchantForm" (ngSubmit)="handleForm()" class="d-grid">
       <div>
         <label for="name">Full Name</label>
         <input
           type="text"
-          placeholder="Enter Merchant Name"
+          class="form-control"
           id="name"
+          formControlName="merchantName"
+          #inputMerchantName
+          placeholder="Enter Merchant Name"
           name="fullName"
         />
+        @if ( merchantForm.get('merchantName')?.errors &&
+        (merchantForm.get('merchantName')?.touched ||
+        inputMerchantName.value.length > 0) ) {
+        <div class="alert alert-danger mt-2">
+          @if (merchantForm.get('merchantName')?.getError('required')) {
+          <p>Merchant Name Required</p>
+          }
+        </div>
+        }
       </div>
 
       <div>
         <label for="phone">Phone</label>
         <input
           type="tel"
-          placeholder="Enter Merchant Phone"
+          class="form-control"
           id="phone"
+          formControlName="phone"
+          placeholder="Enter Merchant Phone"
+          #inputPhone
           name="Phone"
         />
+        @if ( merchantForm.get('phone')?.errors &&
+        (merchantForm.get('phone')?.touched || inputPhone.value.length > 0) ) {
+        <div class="alert alert-danger mt-2">
+          @if (merchantForm.get('phone')?.getError('required')) {
+          <p>Merchant Phone Required</p>
+          }
+        </div>
+        }
       </div>
 
       <div>
-        <label for="email">Email</label>
+        <label for="Email">Email</label>
         <input
           type="email"
-          placeholder="Enter Merchant Email"
+          class="form-control"
           id="email"
-          name="email"
+          formControlName="email"
+          placeholder="Enter Employee Email"
+          #inputEmail
+          name="Email"
         />
+        @if ( merchantForm.get('email')?.errors &&
+        (merchantForm.get('email')?.touched || inputEmail.value.length > 0) ) {
+        <div class="alert alert-danger mt-2">
+          @if (merchantForm.get('email')?.getError('required')) {
+          <p>Email Required</p>
+          } @if (merchantForm.get('email')?.getError('email')) {
+          <p>Email Invalid</p>
+          }
+        </div>
+        }
       </div>
 
       <div>
         <label for="password">Password</label>
         <input
           type="password"
-          placeholder="Enter Merchant Password"
+          class="form-control"
           id="password"
+          formControlName="password"
+          placeholder="Enter Merchant Password"
+          #inputPassword
           name="password"
         />
+        @if ( merchantForm.get('password')?.errors &&
+        (merchantForm.get('password')?.touched || inputPassword.value.length >
+        0) ) {
+        <div class="alert alert-danger mt-2">
+          @if (merchantForm.get('password')?.getError('required')) {
+          <p>Password Required</p>
+          }
+        </div>
+        }
       </div>
 
       <div>
         <label for="address">Address</label>
         <input
           type="text"
-          placeholder="Enter Merchant Address"
+          class="form-control"
           id="address"
+          formControlName="address"
+          placeholder="Enter Merchant Address"
+          #inputAddress
           name="address"
         />
+        @if ( merchantForm.get('address')?.errors &&
+        (merchantForm.get('address')?.touched || inputAddress.value.length > 0)
+        ) {
+        <div class="alert alert-danger mt-2">
+          @if (merchantForm.get('address')?.getError('required')) {
+          <p>Address Required</p>
+          }
+        </div>
+        }
       </div>
 
       <div>
-        <label for="branch">Branch</label>
-        <input
-          list="options"
-          placeholder="Choose Merchant Branch"
-          id="branch"
+        <label for="branch" class="form-label">Branch :</label>
+        <select
           name="branch"
-          onkeydown="return false;"
-          autocomplete="off"
-        />
-        <datalist id="options">
-          <option value="Tanta"></option>
-          <option value="Menofia"></option>
-          <option value="Cairo"></option>
-          <option value="Aswan"></option>
-          <option value="Fayoum"></option>
-        </datalist>
+          class="form-select"
+          id="branch"
+          formControlName="branch"
+        >
+          @for (branch of branches; track $index) {
+          <option [value]="branch">{{ branch }}</option>
+          }
+        </select>
       </div>
 
       <hr />
       <hr />
 
       <div>
-        <label for="state">Government</label>
-        <input
-          list="list"
-          placeholder="Choose Merchant Government"
-          id="state"
-          name="state"
-          onkeydown="return false;"
-          autocomplete="off"
-        />
-
-        <datalist id="list">
-          <option value="Qalubia"></option>
-          <option value="Menofia"></option>
-          <option value="Aswan"></option>
-          <option value="Alex"></option>
-          <option value="Gharbia"></option>
-        </datalist>
+        <label for="governrate" class="form-label">Governrate : </label>
+        <select
+          name="governrate"
+          id="governrate"
+          class="form-select"
+          formControlName="governrate"
+        >
+          @for (governrate of governrates; track $index) {
+          <option [value]="governrate">{{ governrate }}</option>
+          }
+        </select>
       </div>
 
       <div>
-        <label for="city">City</label>
-        <input
-          list="groups"
-          placeholder="Choose Merchant City"
-          id="city"
+        <label for="city" class="form-label">City : </label>
+        <select
           name="city"
-          onkeydown="return false;"
-          autocomplete="off"
-        />
-        <datalist id="groups">
-          <option value="Tanta"></option>
-          <option value="Nasr City"></option>
-          <option value="Cairo"></option>
-          <option value="Aswan"></option>
-          <option value="Fayoum"></option>
-        </datalist>
+          id="city"
+          class="form-select"
+          formControlName="city"
+        >
+          @for (city of cities; track $index) {
+          <option [value]="city">{{ city }}</option>
+          }
+        </select>
       </div>
 
       <div>
         <label for="shopname">Shop Name</label>
         <input
           type="text"
-          placeholder="Enter Merchant Shop Name"
+          class="form-control"
           id="shopname"
+          formControlName="shopName"
+          placeholder="Enter Merchant Shop Name"
+          #inputShopName
           name="shopname"
         />
+
+        @if ( merchantForm.get('shopName')?.errors &&
+        (merchantForm.get('shopName')?.touched || inputShopName.value.length >
+        0) ) {
+        <div class="alert alert-danger mt-2">
+          @if (merchantForm.get('shopName')?.getError('required')) {
+          <p>shop name Required</p>
+          }
+        </div>
+        }
       </div>
-      <div></div>
       <hr />
       <hr />
       <div>
@@ -131,8 +187,6 @@
           <a href="./pricepackages">Add Price Packages</a>
         </button>
       </div>
-      <div></div>
-      <div></div>
       <div>
         <button class="btn merchant">Add Merchant</button>
       </div>
