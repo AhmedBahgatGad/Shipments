@@ -28,7 +28,6 @@ input {
 .header {
   background-color: var(--secondary-color);
   color: white;
-  /* font-size: 20px; */
 }
 
 .left {
@@ -41,4 +40,15 @@ input {
 
 table tbody tr td:nth-last-child(1) {
   padding: 19.24px;
+}
+
+.btn-submit {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 5px 10px;
+}
+
+input[list] {
+  cursor: pointer;
+  caret-color: transparent;
 }

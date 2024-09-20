@@ -1,10 +1,50 @@
 <div class="container-fluid">
   <div>
-    <div class="head d-flex justify-content-between align-items-center mt-4">
-      <h1>Branches</h1>
-    </div>
-    <input type="search" placeholder="  Search" />
+    <h1 class="mt-3 mb-5">Branches</h1>
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <label for="bname" class="form-label">Branch Name</label>
+      <input
+        type="text"
+        placeholder="New Branch"
+        id="bname"
+        class="form-control mb-3"
+        name="newBranch"
+        #inputBranch
+        formControlName="newBranch"
+      />
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label" for="stat">Status</label>
+      <input
+        list="status"
+        placeholder="Choose status"
+        id="stat"
+        name="status"
+        class="form-control mb-3"
+        onkeydown="return false;"
+        autocomplete="off"
+        #inputBranch
+        formControlName="Status"
+      />
+      <datalist id="status">
+        <option value="Available"></option>
+        <option value="Not Available"></option>
+      </datalist>
+    </div>
+
+    <div class="col-md-12 d-flex mb-5 justify-content-start align-items-end">
+      <button class="btn btn-submit">Add Branch</button>
+    </div>
+  </div>
+
+  <div>
+    <input type="search" class="rounded-pill" placeholder="  Search" />
+  </div>
+
   <div class="tables">
     <table class="table table-striped rounded-5 table-hover">
       <thead class="rounded-5">
@@ -58,9 +98,9 @@
       <tbody>
         @for (branch of branches; track $index) {
         <tr>
-          <td>{{branch.id}}</td>
-          <td>{{branch.name}}</td>
-          <td>{{branch.location}}</td>
+          <td>{{ branch.id }}</td>
+          <td>{{ branch.name }}</td>
+          <td>{{ branch.location }}</td>
           <td><i class="fa-solid icon icon fa-toggle-on"></i></td>
           <td><i class="fa-solid icon icon fa-pen-to-square"></i></td>
         </tr>

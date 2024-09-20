@@ -1,6 +1,45 @@
 <div>
   <h1 class="mt-3">Governrates</h1>
 </div>
+
+<div class="row ms-3">
+  <div class="col-md-12">
+    <label for="gname" class="form-label">Governrate Name</label>
+    <input
+      type="text"
+      placeholder="New Governrate"
+      id="gname"
+      class="form-control mb-3"
+      name="newGovernrate"
+      #inputGovernrate
+      formControlName="newGovernrate"
+    />
+  </div>
+
+  <div class="col-md-12">
+    <label class="form-label" for="stat">Status</label>
+    <input
+      list="status"
+      placeholder="Choose status"
+      id="stat"
+      name="status"
+      class="form-control mb-3"
+      onkeydown="return false;"
+      autocomplete="off"
+      #inputGroup
+      formControlName="Status"
+    />
+    <datalist id="status">
+      <option value="Available"></option>
+      <option value="Not Available"></option>
+    </datalist>
+  </div>
+
+  <div class="col-md-12 d-flex justify-content-start align-items-end">
+    <button class="btn btn-submit">Add Governrate</button>
+  </div>
+</div>
+
 <div class="d-flex justify-content-between align-items-center pt-5 my-5">
   <div class="input-group mt-2">
     <input
@@ -32,7 +71,7 @@
 </div>
 
 <div class="p-3 mt-3 container-fluid rounded-4">
-  <table class="table table-striped table-fixed border border-light-subtle">
+  <table class="table table-striped table-fixed">
     <thead class="text-center">
       <tr>
         <th scope="col" class="header left">ID</th>

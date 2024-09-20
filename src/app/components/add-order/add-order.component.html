@@ -289,14 +289,14 @@
             formControlName="merchantPhone"
           />
           @if ( orderForm.get('merchantPhone')?.errors &&
-            (orderForm.get('merchantPhone')?.touched || merchantPhone.value.length
-            > 0) ) {
-            <div class="alert alert-danger mt-2">
-              @if (orderForm.get('merchantPhone')?.getError('required')) {
-              <p>Merchant Phone Required</p>
+          (orderForm.get('merchantPhone')?.touched || merchantPhone.value.length
+          > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (orderForm.get('merchantPhone')?.getError('required')) {
+            <p>Merchant Phone Required</p>
             }
           </div>
-            }
+          }
         </div>
         <div class="mb-3 col-md-6">
           <label for="merchantAddress" class="form-label">Address :</label>
@@ -308,13 +308,13 @@
             formControlName="merchantAddress"
           />
           @if ( orderForm.get('merchantAddress')?.errors &&
-          (orderForm.get('merchantAddress')?.touched || merchantAddress.value.length
-          > 0) ) {
+          (orderForm.get('merchantAddress')?.touched ||
+          merchantAddress.value.length > 0) ) {
           <div class="alert alert-danger mt-2">
             @if (orderForm.get('merchantAddress')?.getError('required')) {
             <p>Merchant Address Required</p>
-          }
-        </div>
+            }
+          </div>
           }
         </div>
       </div>

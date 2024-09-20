@@ -1,44 +1,43 @@
 <div class="container-fluid">
-    <div>
-      <div class="d-flex justify-content-between align-items-center mt-4">
-        <h1>merchants</h1>
-  
-        <p class="btn rounded-3">
-          <a href="../addMerchant">Add merchant</a>
-        </p>
-      </div>
-      <input type="search" placeholder="  Search" />
+  <div>
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <h1>Merchants</h1>
+
+      <p class="btn rounded-3">
+        <a href="../addMerchant">Add merchant</a>
+      </p>
     </div>
-    <div class="tables">
-      <table class="table table-striped rounded-5 table-hover">
-        <thead class="rounded-5">
-          <tr>
-            <th class="border-left">ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Shop Name</th>
-            <th>Roles</th>
-            <th>Status</th>
-            <th class="border-right">Setting</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (merchant of merchants; track $index) {
-          <tr>
-            <td>{{ merchant.id }}</td>
-            <td>{{ merchant.name }}</td>
-            <td>{{ merchant.email }}</td>
-            <td>{{ merchant.username }}</td>
-            <!-- <td>{{ merchant.Phone }}</td> -->
-            <td>{{ merchant.company_name }}</td>
-            <td>{{ merchant.role }}</td>
-            <td><i class="fa-solid icon icon fa-toggle-on"></i></td>
-            <td><i class="fa-solid icon icon fa-pen-to-square"></i></td>
-          </tr>
-          }
-        </tbody>
-      </table>
-    </div>
+    <input type="search" placeholder="  Search" />
   </div>
-  
+  <div class="tables">
+    <table class="table table-striped rounded-5 table-hover">
+      <thead class="rounded-5">
+        <tr>
+          <th class="border-left">ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Shop Name</th>
+          <th>Roles</th>
+          <th>Status</th>
+          <th class="border-right">Setting</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (merchant of merchants; track $index) {
+        <tr>
+          <td>{{ merchant.id }}</td>
+          <td>{{ merchant.name }}</td>
+          <td>{{ merchant.email }}</td>
+          <td>{{ merchant.username }}</td>
+          <!-- <td>{{ merchant.Phone }}</td> -->
+          <td>{{ merchant.company_name }}</td>
+          <td>{{ merchant.role }}</td>
+          <td><i class="fa-solid icon icon fa-toggle-on"></i></td>
+          <td><i class="fa-solid icon icon fa-pen-to-square"></i></td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

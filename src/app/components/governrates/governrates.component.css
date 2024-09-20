@@ -12,6 +12,12 @@ input {
   border: 1px solid rgba(255, 255, 255, 0.4);
   max-width: 250px;
 }
+
+input[list] {
+  cursor: pointer;
+  caret-color: transparent;
+}
+
 .dropdown-toggle::after {
   display: none;
 }
@@ -51,4 +57,10 @@ input {
 
 table tbody tr td:nth-last-child(1) {
   padding: 19.24px;
+}
+
+.btn-submit {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 5px 10px;
 }
