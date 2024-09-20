@@ -1,26 +1,13 @@
-label {
-  display: block;
-  font-size: 20px;
-  margin: 5px 0 10px;
-  /* text-align: left;
-    position: relative;
-    left: 53px; */
-}
-
 a {
   text-decoration: none;
   color: white;
 }
 form {
-  grid-template-columns: repeat(2, 1fr);
   .merchant {
     background-color: var(--primary-color);
     font-size: 20px;
     color: white;
     padding: 10px 15px;
-    position: relative;
-    left: 140px;
-    top: 40px;
   }
 }
 
@@ -40,22 +27,6 @@ h1 {
   padding-left: 176px;
   padding-top: 50px;
   padding-bottom: 50px;
-}
-
-input {
-  border: 1px solid #888;
-  padding: 5px;
-  outline: none;
-  border-radius: 10px;
-  margin: 0 0 20px;
-  width: 400px;
-}
-
-select {
-  width: 300px;
-  padding: 5px;
-  border-radius: 10px;
-  background-color: white;
 }
 
 input[list] {

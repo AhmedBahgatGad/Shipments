@@ -3,177 +3,180 @@
 
   <div class="container rounded-4 p-5 m-auto">
     <form [formGroup]="deliveryForm" (ngSubmit)="handleForm()" class="d-grid">
-      <div>
-        <label for="name">Full Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="deliveryName"
-          formControlName="deliveryName"
-          placeholder="Delivery Name"
-          #inputDeliveryName
-        />
-        @if ( deliveryForm.get('deliveryName')?.errors &&
-        (deliveryForm.get('deliveryName')?.touched ||
-        inputDeliveryName.value.length > 0) ) {
-        <div class="alert alert-danger mt-2">
-          @if (deliveryForm.get('deliveryName')?.getError('required')) {
-          <p>Deliveryman Name Required</p>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="deliveryName"
+            formControlName="deliveryName"
+            placeholder="Delivery Name"
+            #inputDeliveryName
+          />
+          @if ( deliveryForm.get('deliveryName')?.errors &&
+          (deliveryForm.get('deliveryName')?.touched ||
+          inputDeliveryName.value.length > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('deliveryName')?.getError('required')) {
+            <p>Deliveryman Name Required</p>
+            }
+          </div>
           }
         </div>
-        }
-      </div>
 
-      <div>
-        <label for="phone">Phone</label>
-        <input
-          type="tel"
-          class="form-control"
-          id="phone"
-          formControlName="phone"
-          placeholder="Enter Employee Phone"
-          #inputPhone
-          name="Phone"
-        />
-        @if ( deliveryForm.get('phone')?.errors &&
-        (deliveryForm.get('phone')?.touched || inputPhone.value.length > 0) ) {
-        <div class="alert alert-danger mt-2">
-          @if (deliveryForm.get('phone')?.getError('required')) {
-          <p>Deliveryman Phone Required</p>
+        <div class="col-md-6">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="phone"
+            formControlName="phone"
+            placeholder="Enter Employee Phone"
+            #inputPhone
+            name="Phone"
+          />
+          @if ( deliveryForm.get('phone')?.errors &&
+          (deliveryForm.get('phone')?.touched || inputPhone.value.length > 0) )
+          {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('phone')?.getError('required')) {
+            <p>Deliveryman Phone Required</p>
+            }
+          </div>
           }
         </div>
-        }
-      </div>
 
-      <div>
-        <label for="Email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          formControlName="email"
-          placeholder="Enter Employee Email"
-          #inputEmail
-          name="Email"
-        />
-        @if ( deliveryForm.get('email')?.errors &&
-        (deliveryForm.get('email')?.touched || inputEmail.value.length > 0) ) {
-        <div class="alert alert-danger mt-2">
-          @if (deliveryForm.get('email')?.getError('required')) {
-          <p>Email Required</p>
-          } @if (deliveryForm.get('email')?.getError('email')) {
-          <p>Email Invalid</p>
+        <div class="col-md-6">
+          <label for="Email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            placeholder="Enter Employee Email"
+            #inputEmail
+            name="Email"
+          />
+          @if ( deliveryForm.get('email')?.errors &&
+          (deliveryForm.get('email')?.touched || inputEmail.value.length > 0) )
+          {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('email')?.getError('required')) {
+            <p>Email Required</p>
+            } @if (deliveryForm.get('email')?.getError('email')) {
+            <p>Email Invalid</p>
+            }
+          </div>
           }
         </div>
-        }
-      </div>
 
-      <div>
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          formControlName="password"
-          placeholder="Enter Employee Password"
-          #inputPassword
-          name="password"
-        />
-        @if ( deliveryForm.get('password')?.errors &&
-        (deliveryForm.get('password')?.touched || inputPassword.value.length >
-        0) ) {
-        <div class="alert alert-danger mt-2">
-          @if (deliveryForm.get('password')?.getError('required')) {
-          <p>Password Required</p>
+        <div class="col-md-6">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Enter Employee Password"
+            #inputPassword
+            name="password"
+          />
+          @if ( deliveryForm.get('password')?.errors &&
+          (deliveryForm.get('password')?.touched || inputPassword.value.length >
+          0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('password')?.getError('required')) {
+            <p>Password Required</p>
+            }
+          </div>
           }
         </div>
-        }
-      </div>
 
-      <div>
-        <label for="address">Address</label>
-        <input
-          type="text"
-          class="form-control"
-          id="address"
-          formControlName="address"
-          placeholder="Enter Employee Address"
-          #inputAddress
-          name="address"
-        />
-        @if ( deliveryForm.get('address')?.errors &&
-        (deliveryForm.get('address')?.touched || inputAddress.value.length > 0)
-        ) {
-        <div class="alert alert-danger mt-2">
-          @if (deliveryForm.get('address')?.getError('required')) {
-          <p>Address Required</p>
+        <div class="col-md-6">
+          <label for="address">Address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            formControlName="address"
+            placeholder="Enter Employee Address"
+            #inputAddress
+            name="address"
+          />
+          @if ( deliveryForm.get('address')?.errors &&
+          (deliveryForm.get('address')?.touched || inputAddress.value.length >
+          0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('address')?.getError('required')) {
+            <p>Address Required</p>
+            }
+          </div>
           }
         </div>
-        }
-      </div>
 
-      <div>
-        <label for="branch" class="form-label">Branch :</label>
-        <select
-          name="branch"
-          class="form-select"
-          id="branch"
-          formControlName="branch"
-        >
-          @for (branch of branches; track $index) {
-          <option [value]="branch">{{ branch }}</option>
-          }
-        </select>
-      </div>
+        <div class="col-md-6">
+          <label for="branch" class="form-label">Branch :</label>
+          <select
+            name="branch"
+            class="form-select"
+            id="branch"
+            formControlName="branch"
+          >
+            @for (branch of branches; track $index) {
+            <option [value]="branch">{{ branch }}</option>
+            }
+          </select>
+        </div>
 
-      <div>
-        <label for="governrate" class="form-label">Governrate : </label>
-        <select
-          name="governrate"
-          id="governrate"
-          class="form-select"
-          formControlName="governrate"
-        >
-          @for (governrate of governrates; track $index) {
-          <option [value]="governrate">{{ governrate }}</option>
-          }
-        </select>
-      </div>
+        <div class="col-md-6">
+          <label for="governrate" class="form-label">Governrate : </label>
+          <select
+            name="governrate"
+            id="governrate"
+            class="form-select"
+            formControlName="governrate"
+          >
+            @for (governrate of governrates; track $index) {
+            <option [value]="governrate">{{ governrate }}</option>
+            }
+          </select>
+        </div>
 
-      <div class="col">
-        <label for="Discount Type">Discount Type</label>
-        <input
-          list="discount_list"
-          placeholder="Choose Employee Discount Type"
-          id="Discount Type"
-          name="Discount Type"
-          onkeydown="return false;"
-          autocomplete="off"
-        />
-        <datalist id="discount_list">
-          <option value="value"></option>
-          <option value="crdit"></option>
-          <option value="Permun"></option>
-          <option value="AAIB"></option>
-          <option value="CIB"></option>
-        </datalist>
-      </div>
+        <div class="col-md-6">
+          <label for="Discount Type">Discount Type</label>
+          <input
+            list="discount_list"
+            placeholder="Choose Employee Discount Type"
+            id="Discount Type"
+            name="Discount Type"
+            onkeydown="return false;"
+            autocomplete="off"
+          />
+          <datalist id="discount_list">
+            <option value="value"></option>
+            <option value="crdit"></option>
+            <option value="Permun"></option>
+            <option value="AAIB"></option>
+            <option value="CIB"></option>
+          </datalist>
+        </div>
 
-      <div class="col">
-        <label for="Company Per">Company Per</label>
-        <input
-          type="number"
-          max="100"
-          class="form-control"
-          id="Company Per"
-          formControlName="companyPer"
-          placeholder="Enter Percentage"
-          #inputCompanyPer
-          name="Company Per"
-        />
+        <div class="col-md-6">
+          <label for="Company Per">Company Per</label>
+          <input
+            type="number"
+            max="100"
+            class="form-control"
+            id="Company Per"
+            formControlName="companyPer"
+            placeholder="Enter Percentage"
+            #inputCompanyPer
+            name="Company Per"
+          />
+        </div>
       </div>
-
-      <div class="p-5">
+      <div class="pt-3 d-flex justify-content-end">
         <button class="btn" type="submit">Add Delivery Man</button>
       </div>
     </form>
