@@ -1,36 +1,25 @@
-import { IProduct } from "./iproduct";
+import { IProduct } from './iproduct';
 
-enum Ordertype {
-    branch = 'branch',
-    company = 'company',
-    specificPlace = 'specific_place'
-}
-enum DeliveryType {
-    regular = 'regular',
-    in24h = 'in24h',
-    in15d = 'in15d'
-}
-enum Payment {
-    cash = 'cash',
-    visa = 'visa',
-    package = 'package'
-}
 export interface IOrder {
-    orderType:Ordertype,
-    clientName:string,
-    phone:number,
-    phone2:number,
-    email:string,
-    governrate:string,
-    city:string,
-    village:string,
-    toVillage:boolean,
-    deliveryType:DeliveryType,
-    payment:Payment,
-    branch:string,
-    products:IProduct[],
-    orderCost:number,
-    totalWeight:number,
-    merchantPhone:number,
-    merchantAddress:string,
+  branch_id: number;
+  city_id: number;
+  clientName: string;
+  cost: number;
+  created_date: string;
+  email: string;
+  governorate_id: number;
+  id: number;
+  max_weight: number;
+  notes: string;
+  orderType: string;
+  paymentType: string;
+  phone1: string;
+  products: [];
+  region_id: number;
+  shippingType: string;
+  status: string;
+  toVillage: string;
+  user_id: number;
+  village: string;
+  weight: string;
 }

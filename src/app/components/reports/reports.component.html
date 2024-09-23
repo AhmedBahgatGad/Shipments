@@ -22,27 +22,41 @@
       <thead class="rounded-5">
         <tr>
           <th class="border-left">ID</th>
-          <th>Serial Number</th>
-          <th>Merchant</th>
+          <th>Order</th>
+          <th>Shipping</th>
           <th>Client</th>
+          <th>Email</th>
           <th>Phone</th>
-          <th>Government</th>
           <th>City</th>
-          <th class="border-right">More Details</th>
+          <th>Weight</th>
+          <th>Date</th>
+          <th>Cost</th>
+          <th>Payment</th>
+          <th class="border-right">Status</th>
         </tr>
       </thead>
 
       <tbody>
+        @for (item of orders; track $index) {
         <tr>
-          <td>2</td>
-          <td>#7943156</td>
-          <td>Islam</td>
-          <td>Mohamed</td>
-          <td>0123456789</td>
-          <td>Menofia</td>
-          <td>Shebin Al-koum</td>
-          <td><button class="btn btn-outline-danger">View More</button></td>
+          <td class="pt-3">{{ item.id }}</td>
+          <td class="pt-3">{{ item.orderType }}</td>
+          <td class="pt-3">{{ item.shippingType }}</td>
+          <td class="pt-3">{{ item.clientName }}</td>
+          <td class="pt-3">{{ item.email }}</td>
+          <td class="pt-3">{{ item.phone1 }}</td>
+          <td class="pt-3">
+            @for (city of cities; track $index) { @if(item.city_id == city.id){
+            {{ city.city_name }}
+            } }
+          </td>
+          <td class="pt-3">{{ item.weight }}</td>
+          <td class="pt-3">{{ item.created_date }}</td>
+          <td class="pt-3">{{ item.cost }}</td>
+          <td class="pt-3">{{ item.paymentType }}</td>
+          <td class="pt-3 fw-semibold~">{{ item.status }}</td>
         </tr>
+        }
       </tbody>
     </table>
   </div>
