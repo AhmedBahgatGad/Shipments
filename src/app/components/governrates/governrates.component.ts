@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../shared/services/orders.service';
+import { RegionService } from '../shared/services/region.service';
 
 @Component({
   selector: 'app-governrates',
@@ -9,14 +10,13 @@ import { OrdersService } from '../shared/services/orders.service';
   styleUrl: './governrates.component.css'
 })
 export class GovernratesComponent implements OnInit {
-constructor(private _OrdersService:OrdersService) {}
+constructor(private _RegionService:RegionService) {}
   
-governrates:{}[]=[];
+governrates:{id:number,name:string}[]=[];
 ngOnInit(): void {
-  this._OrdersService.getGovernrates().subscribe({
+  this._RegionService.getAllGovernrates().subscribe({
     next:(response)=>{
-      this.governrates = response;
-      console.log(this.governrates);
+      this.governrates = response.data;
       
     },
     error:(err)=>{

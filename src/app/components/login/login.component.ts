@@ -24,17 +24,6 @@ export class LoginComponent{
   isLoading: boolean = false;
   handleForm(): void {
     
-    /* if (this.loginForm.valid) {
-      this.isLoading = true;
-      if(this._UsersService.loginUser(this.loginForm.value)){
-        localStorage.setItem('token','asdasdasd');
-        this._Router.navigate(['/home'])
-        this.isLoading = false;
-      }
-    }
-    else {
-      this.loginForm.markAllAsTouched()
-    } */
 
       if(this.loginForm.valid){
         this._UsersService.login(this.loginForm.value).subscribe({

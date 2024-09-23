@@ -80,56 +80,11 @@
         <th scope="col" class="header right">Setting</th>
       </tr>
     </thead>
-    <!-- <tbody class="text-center">
-            <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td><i class="fa-solid fa-circle-check fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-                <td><i class="fa-solid fa-screwdriver-wrench fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-            </tr>
-            <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td><i class="fa-solid fa-circle-check fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-                <td><i class="fa-solid fa-screwdriver-wrench fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-            </tr>
-            <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td><i class="fa-solid fa-circle-check fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-                <td><i class="fa-solid fa-screwdriver-wrench fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-            </tr>
-            <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td><i class="fa-solid fa-circle-check fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-                <td><i class="fa-solid fa-screwdriver-wrench fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-            </tr>
-            <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td><i class="fa-solid fa-circle-check fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-                <td><i class="fa-solid fa-screwdriver-wrench fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-            </tr>
-            <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td><i class="fa-solid fa-circle-check fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-                <td><i class="fa-solid fa-screwdriver-wrench fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-            </tr>
-            <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td><i class="fa-solid fa-circle-check fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-                <td><i class="fa-solid fa-screwdriver-wrench fa-lg" style="color:  rgb(77, 161, 206);"></i></td>
-            </tr>
-        </tbody> -->
-
     <tbody class="text-center">
       @for (governrate of governrates; track $index) {
       <tr>
         <th>{{ $index + 1 }}</th>
-        <td>{{ governrate }}</td>
+        <td>{{ governrate.name }}</td>
         <td>
           <i
             class="fa-solid fa-circle-check fa-lg"
