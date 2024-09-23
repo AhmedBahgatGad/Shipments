@@ -6,21 +6,26 @@ import { Component, OnInit } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './table-employees.component.html',
-  styleUrl: './table-employees.component.css'
+  styleUrl: './table-employees.component.css',
 })
 export class TableEmployeesComponent implements OnInit {
-constructor(private _UsersService:UsersService) {}
+  // filteredData: any;
+  // usersData: any;
+  constructor(private _UsersService: UsersService) {}
 
-employees:any[] =[];
+  employees: any[] = [];
   ngOnInit(): void {
     this._UsersService.getUsers().subscribe({
-      next:(response)=>{
+      next: (response) => {
         this.employees = response.data;
+        // console.log(response.data);
       },
-      error:(err)=>{
-      }
-    })
+      error: (err) => {},
+    });
   }
-
-
+  // search(value: string): void {
+  //   this.filteredData = this.usersData.filter((item: { employees: string }) =>
+  //     item.employees.toLowerCase().includes(value.toLowerCase())
+  //   );
+  // }
 }

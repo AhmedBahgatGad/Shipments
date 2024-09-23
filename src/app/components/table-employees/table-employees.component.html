@@ -8,6 +8,15 @@
       </p>
     </div>
     <input type="search" placeholder="  Search" />
+    <!-- <div class="col-md-2">
+      <input
+        #searchInput
+        type="text"
+        class="form-control bg-body-light ps-2 w-75"
+        placeholder="Search..."
+        (keyup)="search(searchInput.value)"
+      />
+    </div> -->
   </div>
   <div class="tables">
     <table class="table table-striped rounded-5 table-hover">
@@ -29,8 +38,8 @@
           <td>{{ employee.id }}</td>
           <td>{{ employee.name }}</td>
           <td>{{ employee.email }}</td>
-          <td>{{ employee.username }}</td>
-          <!-- <td>{{ employee.Phone }}</td> -->
+          <!-- <td>{{ employee.username }}</td> -->
+          <td>{{ employee.phone }}</td>
           <td>{{ employee.company_name }}</td>
           <td>{{ employee.role }}</td>
           <td><i class="fa-solid icon icon fa-toggle-on"></i></td>
