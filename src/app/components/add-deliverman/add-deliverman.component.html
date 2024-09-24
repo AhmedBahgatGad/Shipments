@@ -24,6 +24,26 @@
           </div>
           }
         </div>
+        <div class="col-md-6">
+          <label for="name">User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            formControlName="username"
+            placeholder="Delivery User Name"
+            #inputUserName
+          />
+          @if ( deliveryForm.get('username')?.errors &&
+          (deliveryForm.get('username')?.touched || inputUserName.value.length >
+          0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('username')?.getError('required')) {
+            <p>Deliveryman User Name Required</p>
+            }
+          </div>
+          }
+        </div>
 
         <div class="col-md-6">
           <label for="phone">Phone</label>
@@ -147,6 +167,29 @@
           inputgovernorate.value.length > 0) ) {
           <div class="alert alert-danger mt-2">
             @if (deliveryForm.get('discount_type')?.getError('required')) {
+            <p>Discount Type Required</p>
+            }
+          </div>
+          }
+        </div>
+        <div class="col-md-6">
+          <label for="group" class="form-label">Group : </label>
+          <select
+            name="group"
+            id="group"
+            class="form-select"
+            formControlName="group_id"
+            #inputgroup
+          >
+            @for (group of groups; track $index) {
+            <option [value]="group.id">{{ group.name }}</option>
+            }
+          </select>
+          @if ( deliveryForm.get('group_id')?.errors &&
+          (deliveryForm.get('group_id')?.touched ||
+          inputgroup.value.length > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('group_id')?.getError('required')) {
             <p>Discount Type Required</p>
             }
           </div>

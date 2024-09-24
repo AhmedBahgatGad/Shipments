@@ -33,6 +33,7 @@ export class AddDelivermanComponent implements OnInit {
   deliveryForm!: FormGroup;
   branches: IBranches[] = [];
   governrates: { id: number; name: string }[] = [];
+  groups: { id: number; name: string }[] = [];
 
   ngOnInit(): void {
     this._GroupsService.getBranches().subscribe({
@@ -41,6 +42,11 @@ export class AddDelivermanComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
+      },
+    });
+    this._GroupsService.getGroups().subscribe({
+      next: (response) => {
+        this.groups = response.data;
       },
     });
     this._RegionService.getAllGovernrates().subscribe({
@@ -53,6 +59,7 @@ export class AddDelivermanComponent implements OnInit {
     });
     this.deliveryForm = this._FormBuilder.group({
       name: ['', Validators.required],
+      username: ['', Validators.required],
       phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -62,6 +69,7 @@ export class AddDelivermanComponent implements OnInit {
       governorate_id: ['', Validators.required],
       discount_type: ['Percentage', Validators.required],
       company_per: ['3%', Validators.required],
+      role: ['delivery_man', Validators.required],
     });
   }
   handleForm() {
@@ -71,8 +79,10 @@ export class AddDelivermanComponent implements OnInit {
           console.log(res);
 
           this._ToastrService.success(res.message, 'Shipping Company');
+          // console.log(res);
         },
         error: (err) => {
+          console.log(this.deliveryForm.value);
           this._ToastrService.error(err.error.message, 'Shipping Company');
           console.log(err);
         },

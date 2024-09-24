@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../shared/services/orders.service';
 import {
@@ -14,6 +15,7 @@ import { RegionService } from '../shared/services/region.service';
 import { IBranches } from '../shared/Interfaces/ibranches';
 import { IOrder } from '../shared/Interfaces/iorder';
 import { UsersService } from '../shared/services/users.service';
+
 
 @Component({
   selector: 'app-add-order',
@@ -50,6 +52,9 @@ export class AddOrderComponent implements OnInit {
   products!: FormArray;
   orderForm!: FormGroup;
   ngOnInit(): void {
+    
+
+
     this._RegionService.getAllGovernrates().subscribe({
       next: (response) => {
         this.governrates = response.data;
@@ -76,19 +81,19 @@ export class AddOrderComponent implements OnInit {
       orderType: ['', Validators.required],
       clientName: ['', Validators.required],
       phone1: ['', Validators.required],
-      phone2: [''],
       email: ['', [Validators.required, Validators.email]],
       governorate_id: ['', Validators.required],
-      city_id: ['', Validators.required], ///////////
+      city_id: ['', Validators.required],
       village: [''],
       toVillage: [false],
+      status:['pending'],
       shippingType: ['', Validators.required],
       paymentType: ['', Validators.required],
-      branch: ['', Validators.required],
+      branch_id: ['', Validators.required],
       merchantPhone: ['', Validators.required],
       merchantAddress: ['', Validators.required],
-      orderCost: [1, Validators.required],
-      totalWeight: [1, Validators.required],
+      cost: [1, Validators.required],
+      weight: [1, Validators.required],
       notes: [''],
       products: this._FormBuilder.array([]),
     });
@@ -98,7 +103,6 @@ export class AddOrderComponent implements OnInit {
   handleForm() {
     if (this.orderForm.valid) {
       console.log(this.orderForm.value);
-      this._Router.navigate(['/home']);
     } else {
       this.orderForm.markAllAsTouched();
     }
