@@ -70,25 +70,6 @@
         </div>
 
         <div class="mb-3 col-md-6">
-          <label for="phone2" class="form-label">Phone Number 2 :</label>
-          <input
-            type="number"
-            class="form-control"
-            id="phone2"
-            formControlName="phone2"
-            #inputPhone2
-          />
-          @if (orderForm.get("phone2")?.errors &&
-          (orderForm.get("phone2")?.touched || inputPhone2.value.length > 0)) {
-          <div class="alert alert-danger">
-            @if (orderForm.get("phone2")?.getError("required")) {
-            <p>Phone Number 2 Required</p>
-            }
-          </div>
-          }
-        </div>
-
-        <div class="mb-3 col-md-6">
           <label for="email" class="form-label">Email :</label>
           <input
             #inputEmail
@@ -236,17 +217,17 @@
             name="branch"
             class="form-select"
             id="branch"
-            formControlName="branch"
+            formControlName="branch_id"
             #inputBranch
           >
             @for (branch of branches; track $index) {
             <option [value]="branch.id">{{ branch.name }}</option>
             }
           </select>
-          @if (orderForm.get("branch")?.errors &&
-          (orderForm.get("branch")?.touched || inputBranch.value.length > 0)) {
+          @if (orderForm.get("branch_id")?.errors &&
+          (orderForm.get("branch_id")?.touched || inputBranch.value.length > 0)) {
           <div class="alert alert-danger">
-            @if (orderForm.get("branch")?.getError("required")) {
+            @if (orderForm.get("branch_id")?.getError("required")) {
             <p>Branch Required</p>
             }
           </div>
@@ -325,23 +306,23 @@
           </table>
         </div>
         <div class="mb-3 col-md-6">
-          <label for="orderCost" class="form-label">Order Cost :</label>
+          <label for="cost" class="form-label">Order Cost :</label>
           <input
-            #orderCost
+            #cost
             type="number"
             class="form-control"
-            id="orderCost"
-            formControlName="orderCost"
+            id="cost"
+            formControlName="cost"
           />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="totalWeight" class="form-label">Total Weight :</label>
+          <label for="weight" class="form-label">Total Weight :</label>
           <input
-            #totalWeight
+            #weight
             type="number"
             class="form-control"
-            id="totalWeight"
-            formControlName="totalWeight"
+            id="weight"
+            formControlName="weight"
           />
         </div>
         <div class="mb-3 col-md-12">
