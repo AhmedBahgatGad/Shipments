@@ -27,4 +27,9 @@ export class GroupsService {
       headers:this.myHeaders
     })
   }
+  deleteGroup(id:number):Observable<any>{
+    return this._HttpClient.delete(`http://127.0.0.1:8000/api/groups/${id}`,{
+      headers:this.myHeaders
+    })
+  }
 }

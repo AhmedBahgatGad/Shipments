@@ -17,19 +17,6 @@
       />
     </div>
 
-    <!-- <div class="col-md-12">
-      <label for="perm" class="form-label">Permissions</label>
-      <input
-        type="text"
-        placeholder="Add Permissions"
-        id="perm"
-        class="form-control mb-3"
-        name="permissions"
-        #inputGroup
-        formControlName="permissions"
-      />
-    </div> -->
-
     <div class="col-md-12">
       <label class="form-label" for="permission">Permissions</label>
       <input
@@ -56,12 +43,13 @@
   </div>
 
   <div class="d-flex justify-content-between align-items-center my-5">
-    <div class="container-fluid">
+    <div class="col-md-2">
       <input
+        #searchInput
         type="text"
-        class="rounded-pill"
-        placeholder="Search"
-        aria-label="Search"
+        class="form-control bg-body-light ps-2 w-75"
+        placeholder="Search..."
+        (input)="filtergroups($event)"
       />
     </div>
     <div class="dropdown">
@@ -95,71 +83,8 @@
           <th scope="col" class="header right">Status</th>
         </tr>
       </thead>
-      <!-- <tbody class="text-center">
-              <tr>
-                  <td>1</td>
-                  <td>manager</td>
-                  <td>28-05-2024</td>
-                  <td >
-                      <i class="fa-solid fa-pen-to-square fa-lg mx-1" style="color: #63E6BE;"></i>
-                      <i class="fa-solid fa-trash-arrow-up fa-lg mx-1" style="color: #db1a1a;"></i>
-                      <i class="fa-solid fa-gear fa-lg mx-1" style="color: #005e87;"></i>
-                  </td>
-              </tr>
-              <tr>
-                  <td>1</td>
-                  <td>manager</td>
-                  <td>28-05-2024</td>
-                  <td >
-                      <i class="fa-solid fa-pen-to-square fa-lg mx-1" style="color: #63E6BE;"></i>
-                      <i class="fa-solid fa-trash-arrow-up fa-lg mx-1" style="color: #db1a1a;"></i>
-                      <i class="fa-solid fa-gear fa-lg mx-1" style="color: #005e87;"></i>
-                  </td>
-              </tr>
-              <tr>
-                  <td>1</td>
-                  <td>manager</td>
-                  <td>28-05-2024</td>
-                  <td >
-                      <i class="fa-solid fa-pen-to-square fa-lg mx-1" style="color: #63E6BE;"></i>
-                      <i class="fa-solid fa-trash-arrow-up fa-lg mx-1" style="color: #db1a1a;"></i>
-                      <i class="fa-solid fa-gear fa-lg mx-1" style="color: #005e87;"></i>
-                  </td>
-              </tr>
-              <tr>
-                  <td>1</td>
-                  <td>manager</td>
-                  <td>28-05-2024</td>
-                  <td >
-                      <i class="fa-solid fa-pen-to-square fa-lg mx-1" style="color: #63E6BE;"></i>
-                      <i class="fa-solid fa-trash-arrow-up fa-lg mx-1" style="color: #db1a1a;"></i>
-                      <i class="fa-solid fa-gear fa-lg mx-1" style="color: #005e87;"></i>
-                  </td>
-              </tr>
-              <tr>
-                  <td>1</td>
-                  <td>manager</td>
-                  <td>28-05-2024</td>
-                  <td >
-                      <i class="fa-solid fa-pen-to-square fa-lg mx-1" style="color: #63E6BE;"></i>
-                      <i class="fa-solid fa-trash-arrow-up fa-lg mx-1" style="color: #db1a1a;"></i>
-                      <i class="fa-solid fa-gear fa-lg mx-1" style="color: #005e87;"></i>
-                  </td>
-              </tr>
-              <tr>
-                  <td>1</td>
-                  <td>manager</td>
-                  <td>28-05-2024</td>
-                  <td >
-                      <i class="fa-solid fa-pen-to-square fa-lg mx-1" style="color: #63E6BE;"></i>
-                      <i class="fa-solid fa-trash-arrow-up fa-lg mx-1" style="color: #db1a1a;"></i>
-                      <i class="fa-solid fa-gear fa-lg mx-1" style="color: #005e87;"></i>
-                  </td>
-              </tr>
-          </tbody> -->
-
       <tbody class="text-center">
-        @for (group of groups; track $index) {
+        @for (group of filteredGroups; track $index) {
         <tr>
           <td>{{ group.id }}</td>
           <td>{{ group.name }}</td>
@@ -172,6 +97,7 @@
             <i
               class="fa-solid fa-trash-arrow-up fa-lg mx-1"
               style="color: var(--third-color)"
+              (click)="remove(group.id)"
             ></i>
             <i
               class="fa-solid fa-gear fa-lg mx-1"
