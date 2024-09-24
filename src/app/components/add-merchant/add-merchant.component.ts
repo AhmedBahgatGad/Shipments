@@ -7,8 +7,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OrdersService } from '../shared/services/orders.service';
-import { GroupsService } from '../shared/services/groups.service';
-import { RegionService } from '../shared/services/region.service';
 
 @Component({
   selector: 'app-add-merchant',
@@ -19,22 +17,21 @@ import { RegionService } from '../shared/services/region.service';
 })
 export class AddMerchantComponent implements OnInit {
   merchantForm!: FormGroup;
-  branches: string[] = [];
+  branches: IBranches[] = [];
   governrates: string[] = [];
   cities: string[] = [];
   constructor(
     private _FormBuilder: FormBuilder,
     private _Router: Router,
-    private _GroupsService: GroupsService,
-    private _RegionService: RegionService
+    private _OrdersService: OrdersService
   ) {}
   ngOnInit(): void {
-    this._GroupsService.getBranches().subscribe({
+    this._OrdersService.getBrnaches().subscribe({
       next: (response) => {
         this.branches = response;
       },
     });
-    this._RegionService.getAllGovernrates().subscribe({
+    this._OrdersService.getGovernrates().subscribe({
       next: (response) => {
         this.governrates = response;
       },
@@ -45,9 +42,11 @@ export class AddMerchantComponent implements OnInit {
       },
     });
     this.merchantForm = this._FormBuilder.group({
-      merchantName: ['', Validators.required],
+      name: ['', Validators.required],
       phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required],
+      role: ['trader'],
       password: ['', Validators.required],
       address: ['', Validators.required],
       branch: [this.branches[0], Validators.required],
@@ -57,6 +56,7 @@ export class AddMerchantComponent implements OnInit {
     });
   }
   handleForm() {
+    let toastr = this._ToastrService;
     if (this.merchantForm.valid) {
       console.log(this.merchantForm.value);
       this._Router.navigate(['/home']);

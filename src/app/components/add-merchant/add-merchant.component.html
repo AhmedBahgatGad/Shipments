@@ -10,17 +10,38 @@
             type="text"
             class="form-control"
             id="name"
-            formControlName="merchantName"
+            formControlName="name"
             #inputMerchantName
             placeholder="Enter Merchant Name"
             name="fullName"
           />
-          @if ( merchantForm.get('merchantName')?.errors &&
-          (merchantForm.get('merchantName')?.touched ||
+          @if ( merchantForm.get('name')?.errors &&
+          (merchantForm.get('name')?.touched ||
           inputMerchantName.value.length > 0) ) {
           <div class="alert alert-danger mt-2">
-            @if (merchantForm.get('merchantName')?.getError('required')) {
+            @if (merchantForm.get('name')?.getError('required')) {
             <p>Merchant Name Required</p>
+            }
+          </div>
+          }
+        </div>
+        <div class="mb-3 col-md-6">
+          <label class="form-label" for="username">User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userName"
+            formControlName="username"
+            #inputUserName
+            placeholder="Enter User Name"
+            name="username"
+          />
+          @if ( merchantForm.get('username')?.errors &&
+          (merchantForm.get('username')?.touched ||
+          inputUserName.value.length > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (merchantForm.get('username')?.getError('required')) {
+            <p>User Name Required</p>
             }
           </div>
           }
@@ -122,61 +143,30 @@
             name="branch"
             class="form-select"
             id="branch"
-            formControlName="branch"
+            formControlName="branch_id"
           >
             @for (branch of branches; track $index) {
-            <option [value]="branch">{{ branch }}</option>
+            <option [value]="branch.id">{{ branch.name }}</option>
             }
           </select>
         </div>
-
-        <!-- <hr /> -->
-
-        <div class="mb-3 col-md-6">
-          <label for="governrate" class="form-label">Governrate : </label>
-          <select
-            name="governrate"
-            id="governrate"
-            class="form-select"
-            formControlName="governrate"
-          >
-            @for (governrate of governrates; track $index) {
-            <option [value]="governrate">{{ governrate }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3 col-md-6">
-          <label for="city" class="form-label">City : </label>
-          <select
-            name="city"
-            id="city"
-            class="form-select"
-            formControlName="city"
-          >
-            @for (city of cities; track $index) {
-            <option [value]="city">{{ city }}</option>
-            }
-          </select>
-        </div>
-
         <div class="mb-3 col-md-6">
           <label class="form-label" for="shopname">Shop Name</label>
           <input
             type="text"
             class="form-control"
             id="shopname"
-            formControlName="shopName"
+            formControlName="company_name"
             placeholder="Enter Merchant Shop Name"
             #inputShopName
             name="shopname"
           />
 
-          @if ( merchantForm.get('shopName')?.errors &&
-          (merchantForm.get('shopName')?.touched || inputShopName.value.length >
+          @if ( merchantForm.get('company_name')?.errors &&
+          (merchantForm.get('company_name')?.touched || inputShopName.value.length >
           0) ) {
           <div class="alert alert-danger mt-2">
-            @if (merchantForm.get('shopName')?.getError('required')) {
+            @if (merchantForm.get('company_name')?.getError('required')) {
             <p>shop name Required</p>
             }
           </div>

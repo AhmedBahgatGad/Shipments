@@ -24,5 +24,9 @@ constructor(private _GroupsService:GroupsService) {}
     })
   }
 
+  editPermission(group_id:number,permission_id:number):void{
+    
+  }
+
 
 }
