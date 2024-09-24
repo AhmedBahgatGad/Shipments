@@ -47,18 +47,11 @@ export class RegionService {
       headers: this.myHeaders,
     });
   }
-<<<<<<< HEAD
 
   getAllBranches(): Observable<any> {
     return this._HttpClient.get('http://127.0.0.1:8000/api/branches', {
       headers: this.myHeaders,
     });
-=======
-  getAllBranches():Observable<any>{
-    return this._HttpClient.get('http://127.0.0.1:8000/api/branches',{
-      headers:this.myHeaders
-    })
->>>>>>> 11b4bfc5f2dd336a363ccbde5a495b39027b9db1
   }
   addBranch(data: any): Observable<any> {
     return this._HttpClient.post('http://127.0.0.1:8000/api/branches', data, {
