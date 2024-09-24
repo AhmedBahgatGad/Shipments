@@ -39,10 +39,16 @@ export class AddDelivermanComponent implements OnInit {
       next: (response) => {
         this.branches = response.data;
       },
+      error: (err) => {
+        console.log(err);
+      },
     });
     this._RegionService.getAllGovernrates().subscribe({
       next: (response) => {
         this.governrates = response.data;
+      },
+      error: (err) => {
+        console.log(err);
       },
     });
     this.deliveryForm = this._FormBuilder.group({
@@ -51,26 +57,26 @@ export class AddDelivermanComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       address: ['', Validators.required],
+      role: ['delivery_man', Validators.required],
       branch_id: ['', Validators.required],
       governorate_id: ['', Validators.required],
       discount_type: ['Percentage', Validators.required],
       company_per: ['3%', Validators.required],
-      role: ['delivery_man', Validators.required],
     });
   }
   handleForm() {
     if (this.deliveryForm.valid) {
       this._UsersService.addEmployee(this.deliveryForm.value).subscribe({
         next: (res) => {
+          console.log(res);
+
           this._ToastrService.success(res.message, 'Shipping Company');
-          // console.log(res);
         },
         error: (err) => {
           this._ToastrService.error(err.error.message, 'Shipping Company');
           console.log(err);
         },
       });
-      this._Router.navigate(['/home']);
     } else {
       this.deliveryForm.markAllAsTouched();
     }
