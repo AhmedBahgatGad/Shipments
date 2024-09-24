@@ -19,6 +19,16 @@ export class RegionService {
     });
   }
 
+  addGovernorate(data:any):Observable<any>{
+    return this._HttpClient.post('http://127.0.0.1:8000/api/governorates',data,{
+      headers:this.myHeaders
+    })
+  }
+  removeGovernorate(id:number):Observable<any>{
+    return this._HttpClient.delete(`http://127.0.0.1:8000/api/governorates/${id}`,{
+      headers:this.myHeaders
+    })
+  }
   getAllCities(): Observable<any> {
     return this._HttpClient.get('http://127.0.0.1:8000/api/cities', {
       headers: this.myHeaders,
@@ -30,9 +40,18 @@ export class RegionService {
       headers: this.myHeaders,
     });
   }
-
   getAllBranches():Observable<any>{
     return this._HttpClient.get('http://127.0.0.1:8000/api/branches',{
+      headers:this.myHeaders
+    })
+  }
+  addBranch(data:any):Observable<any>{
+    return this._HttpClient.post('http://127.0.0.1:8000/api/branches',data,{
+      headers:this.myHeaders
+    })
+  }
+  removeBranch(id:number):Observable<any>{
+    return this._HttpClient.delete(`http://127.0.0.1:8000/api/branches/${id}`,{
       headers:this.myHeaders
     })
   }

@@ -3,50 +3,49 @@
 </div>
 
 <div class="row ms-3">
-  <div class="col-md-12">
-    <label for="gname" class="form-label">Governrate Name</label>
-    <input
-      type="text"
-      placeholder="New Governrate"
-      id="gname"
-      class="form-control mb-3"
-      name="newGovernrate"
-      #inputGovernrate
-      formControlName="newGovernrate"
-    />
-  </div>
+  <form [formGroup]="governForm" (ngSubmit)="handleForm()">
+    <div class="col-md-2">
+      <label for="gname" class="form-label">Governrate Name</label>
+      <input
+        type="text"
+        placeholder="New Governrate"
+        id="gname"
+        class="form-control mb-3"
+        name="newGovernrate"
+        #inputGovernrate
+        formControlName="name"
+      />
+    </div>
 
-  <div class="col-md-12">
-    <label class="form-label" for="stat">Status</label>
-    <input
-      list="status"
-      placeholder="Choose status"
-      id="stat"
-      name="status"
-      class="form-control mb-3"
-      onkeydown="return false;"
-      autocomplete="off"
-      #inputGroup
-      formControlName="Status"
-    />
-    <datalist id="status">
-      <option value="Available"></option>
-      <option value="Not Available"></option>
-    </datalist>
-  </div>
+    <div class="col-md-2">
+      <label class="form-label" for="stat">Status</label>
+      <select
+        list="status"
+        placeholder="Choose status"
+        id="stat"
+        name="status"
+        class="form-select mb-3"
+        #inputGroup
+        formControlName="status"
+      >
+      <option value="1">Available</option>
+      <option value="0">UnAvailable</option>
+    </select>
+    </div>
 
-  <div class="col-md-12 d-flex justify-content-start align-items-end">
-    <button class="btn btn-submit">Add Governrate</button>
-  </div>
+    <div class="col-md-12 d-flex justify-content-start align-items-end">
+      <button class="btn btn-submit">Add Governrate</button>
+    </div>
+  </form>
 </div>
 
 <div class="d-flex justify-content-between align-items-center pt-5 my-5">
   <div class="input-group mt-2">
     <input
-      type="text"
-      class="form-control rounded-pill"
-      placeholder="Search"
-      aria-label="Search"
+    type="text"
+    placeholder="Search..."
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="filterGovernorates()"
     />
   </div>
   <div class="dropdown">
@@ -81,7 +80,7 @@
       </tr>
     </thead>
     <tbody class="text-center">
-      @for (governrate of governrates; track $index) {
+      @for (governrate of filteredGoverns ; track $index) {
       <tr>
         <td class="pt-3">
           {{ $index + 1 }}
@@ -97,8 +96,8 @@
         </td>
         <td>
           <i
-            class="fa-solid fa-screwdriver-wrench fa-lg"
-            style="color: var(--secondary-color)"
+            class="fa-solid fa-trash-can fa-lg text-danger"
+            (click)="remove(governrate.id)"
           ></i>
         </td>
       </tr>

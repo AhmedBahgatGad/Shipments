@@ -7,7 +7,16 @@
         <a href="../addMerchant">Add merchant</a>
       </p>
     </div>
-    <input type="search" placeholder="  Search" />
+    <div class="col-md-2">
+      <input
+        #searchInput
+        type="text"
+        class="form-control bg-body-light ps-2 w-75"
+        placeholder="Search..."
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="filterMerchants()"
+      />
+    </div>
   </div>
   <div class="tables">
     <table class="table table-striped rounded-5 table-hover">
@@ -24,7 +33,7 @@
         </tr>
       </thead>
       <tbody>
-        @for (merchant of merchants; track $index) {
+        @for (merchant of filteredMerchants; track $index) {
         @if(merchant.role == "trader"){
           <tr>
             <td>{{ merchant.id }}</td>
