@@ -24,4 +24,10 @@ export class RegionService {
       headers:this.myHeaders
     })
   }
+
+  getAllBranches():Observable<any>{
+    return this._HttpClient.get('http://127.0.0.1:8000/api/branches',{
+      headers:this.myHeaders
+    })
+  }
 }

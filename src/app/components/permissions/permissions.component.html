@@ -23,10 +23,10 @@
           <tr>
             <td>{{item.id}}</td>
             <td>{{item.name}}</td>
-            <td><input type="checkbox" class="form-check-input m-auto"></td>
-            <td><input type="checkbox" class="form-check-input m-auto"></td>
-            <td><input type="checkbox" class="form-check-input m-auto"></td>
-            <td><input type="checkbox" class="form-check-input m-auto"></td>
+            <td><input type="checkbox" class="form-check-input m-auto" (click)="editPermission(item.id,3)"></td>
+            <td><input type="checkbox" class="form-check-input m-auto" (click)="editPermission(item.id,5)"></td>
+            <td><input type="checkbox" class="form-check-input m-auto" (click)="editPermission(item.id,4)"></td>
+            <td><input type="checkbox" class="form-check-input m-auto" (click)="editPermission(item.id,1)"></td>
           </tr>
         }
       </tbody>

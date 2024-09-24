@@ -52,4 +52,10 @@ export class UsersService {
       headers: this.myHeaders
     })
   }
+
+  addMerchant(data:object):Observable<any>{
+    return this._HttpClient.post('http://127.0.0.1:8000/api/users',data,{
+      headers:this.myHeaders
+    })
+  }
 }
