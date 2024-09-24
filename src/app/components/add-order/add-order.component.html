@@ -5,12 +5,13 @@
     <form [formGroup]="orderForm" (ngSubmit)="handleForm()">
       <div class="row">
         <div class="mb-3 col-md-6">
-          <label for="orderTypeInput" class="form-label">Order Type :</label>
+          <label for="orderType" class="form-label">Order Type :</label>
           <select
             name="orderType"
             class="form-select"
-            id="orderTypeInput"
+            id="orderType"
             formControlName="orderType"
+            #inputOrderType
           >
             @for (option of orderTypeOptions; track $index) {
             <option [value]="option" class="text-capitalize">
@@ -18,7 +19,17 @@
             </option>
             }
           </select>
+          @if (orderForm.get("orderType")?.errors &&
+          (orderForm.get("orderType")?.touched || inputOrderType.value.length >
+          0)) {
+          <div class="alert alert-danger">
+            @if (orderForm.get("orderType")?.getError("required")) {
+            <p>Order Type Required</p>
+            }
+          </div>
+          }
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="clientName" class="form-label">Client Name :</label>
           <input
@@ -38,6 +49,7 @@
           </div>
           }
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="phone1" class="form-label">Phone Number :</label>
           <input
@@ -56,6 +68,7 @@
           </div>
           }
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="phone2" class="form-label">Phone Number 2 :</label>
           <input
@@ -63,8 +76,18 @@
             class="form-control"
             id="phone2"
             formControlName="phone2"
+            #inputPhone2
           />
+          @if (orderForm.get("phone2")?.errors &&
+          (orderForm.get("phone2")?.touched || inputPhone2.value.length > 0)) {
+          <div class="alert alert-danger">
+            @if (orderForm.get("phone2")?.getError("required")) {
+            <p>Phone Number 2 Required</p>
+            }
+          </div>
+          }
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="email" class="form-label">Email :</label>
           <input
@@ -85,32 +108,54 @@
           </div>
           }
         </div>
+
         <div class="mb-3 col-md-6">
-          <label for="governrate" class="form-label">Governrate : </label>
+          <label for="governrate" class="form-label">Governorate : </label>
           <select
             name="governrate"
             id="governrate"
             class="form-select"
-            formControlName="governrate"
+            formControlName="governorate_id"
+            #inputGovernrate
           >
             @for (governrate of governrates; track $index) {
-            <option [value]="governrate">{{ governrate }}</option>
+            <option [value]="governrate.id">{{ governrate.name }}</option>
             }
           </select>
+          @if (orderForm.get("governorate_id")?.errors &&
+          (orderForm.get("governorate_id")?.touched ||
+          inputGovernrate.value.length > 0)) {
+          <div class="alert alert-danger">
+            @if (orderForm.get("governorate_id")?.getError("required")) {
+            <p>Governorate Name Required</p>
+            }
+          </div>
+          }
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="city" class="form-label">City : </label>
           <select
             name="city"
             id="city"
             class="form-select"
-            formControlName="city"
+            formControlName="city_id"
+            #inputCity
           >
             @for (city of cities; track $index) {
-            <option [value]="city">{{ city }}</option>
+            <option [value]="city.id">{{ city.city_name }}</option>
             }
           </select>
+          @if (orderForm.get("city_id")?.errors &&
+          (orderForm.get("city_id")?.touched || inputCity.value.length > 0)) {
+          <div class="alert alert-danger">
+            @if (orderForm.get("city_id")?.getError("required")) {
+            <p>City Required</p>
+            }
+          </div>
+          }
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="village" class="form-label">Village & Street :</label>
           <input
@@ -119,6 +164,7 @@
             id="village"
             formControlName="village"
           />
+
           <div class="mb-3 form-check">
             <input
               type="checkbox"
@@ -131,21 +177,33 @@
             >
           </div>
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="shipingTypeInput" class="form-label"
-            >Shiping Type :</label
+            >Shipping Type :</label
           >
           <select
-            name="shipingType"
+            name="shippingType"
             class="form-select"
             id="shipingTypeInput"
-            formControlName="shipingType"
+            formControlName="shippingType"
+            #inputShippingType
           >
-            @for (item of shipingTypeOptions; track $index) {
+            @for (item of shippingTypeOptions; track $index) {
             <option [value]="item">{{ item }}</option>
             }
           </select>
+          @if (orderForm.get("shippingType")?.errors &&
+          (orderForm.get("shippingType")?.touched ||
+          inputShippingType.value.length > 0)) {
+          <div class="alert alert-danger">
+            @if (orderForm.get("shippingType")?.getError("required")) {
+            <p>Shipping Type Required</p>
+            }
+          </div>
+          }
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="paymentTypeInput" class="form-label"
             >Payment Type :</label
@@ -155,12 +213,23 @@
             class="form-select"
             id="paymentTypeInput"
             formControlName="paymentType"
+            #inputPaymentType
           >
             @for (item of paymentTypeOptions; track $index) {
             <option [value]="item">{{ item }}</option>
             }
           </select>
+          @if (orderForm.get("paymentType")?.errors &&
+          (orderForm.get("paymentType")?.touched ||
+          inputPaymentType.value.length > 0)) {
+          <div class="alert alert-danger">
+            @if (orderForm.get("paymentType")?.getError("required")) {
+            <p>Payment Type Required</p>
+            }
+          </div>
+          }
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="branch" class="form-label">Branch :</label>
           <select
@@ -168,12 +237,22 @@
             class="form-select"
             id="branch"
             formControlName="branch"
+            #inputBranch
           >
             @for (branch of branches; track $index) {
-            <option [value]="branch">{{ branch }}</option>
+            <option [value]="branch.id">{{ branch.name }}</option>
             }
           </select>
+          @if (orderForm.get("branch")?.errors &&
+          (orderForm.get("branch")?.touched || inputBranch.value.length > 0)) {
+          <div class="alert alert-danger">
+            @if (orderForm.get("branch")?.getError("required")) {
+            <p>Branch Required</p>
+            }
+          </div>
+          }
         </div>
+
         <hr class="my-2" />
         <h4 class="my-2">Add Product</h4>
 
@@ -298,6 +377,7 @@
           </div>
           }
         </div>
+
         <div class="mb-3 col-md-6">
           <label for="merchantAddress" class="form-label">Address :</label>
           <input

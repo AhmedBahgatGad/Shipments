@@ -4,58 +4,68 @@ import { IUser } from '../Interfaces/iuser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
-  
-  constructor(private _HttpClient: HttpClient) { }
+  constructor(private _HttpClient: HttpClient) {}
 
   token = localStorage.getItem('token');
 
-
-  myHeaders:any = new HttpHeaders({
-    'Authorization': `Bearer ${this.token} `
+  myHeaders: any = new HttpHeaders({
+    Authorization: `Bearer ${this.token} `,
   });
 
-  users:IUser={
-    id:1,
-    name:'admin',
-    email:'admin@gmail.com',
-    password:'A123456789',
-    role:'admin'
+  users: IUser = {
+    id: 1,
+    name: 'admin',
+    email: 'admin@gmail.com',
+    password: 'A123456789',
+    role: 'admin',
   };
 
-  getUserData():Observable<IUser>{
-    if(this.users){
+  getUserData(): Observable<IUser> {
+    if (this.users) {
       return of(this.users);
-    }
-    else{
+    } else {
       return of();
     }
   }
-  loginUser(data:IUser){
-    if(data.email == this.users.email && data.password == this.users.password){
+  loginUser(data: IUser) {
+    if (
+      data.email == this.users.email &&
+      data.password == this.users.password
+    ) {
       return true;
+    } else {
+      return false;
     }
-    else{
-      return false
-    }
   }
 
-  login(data:object):Observable<any>{
-    return this._HttpClient.post('http://127.0.0.1:8000/api/login',data);
+  login(data: object): Observable<any> {
+    return this._HttpClient.post('http://127.0.0.1:8000/api/login', data);
   }
 
-
-  getUsers():Observable<any>{
-    return this._HttpClient.get('http://127.0.0.1:8000/api/users',{
-      headers: this.myHeaders
-    })
+  getUsers(): Observable<any> {
+    return this._HttpClient.get('http://127.0.0.1:8000/api/users', {
+      headers: this.myHeaders,
+    });
   }
 
-  addMerchant(data:object):Observable<any>{
-    return this._HttpClient.post('http://127.0.0.1:8000/api/users',data,{
-      headers:this.myHeaders
-    })
+  addMerchant(data: object): Observable<any> {
+    return this._HttpClient.post('http://127.0.0.1:8000/api/users', data, {
+      headers: this.myHeaders,
+    });
+  }
+
+  addEmployee(data: object): Observable<any> {
+    return this._HttpClient.post('http://127.0.0.1:8000/api/users', data, {
+      headers: this.myHeaders,
+    });
+  }
+
+  addDeliveryMan(data: object): Observable<any> {
+    return this._HttpClient.post('http://127.0.0.1:8000/api/users', data, {
+      headers: this.myHeaders,
+    });
   }
 }

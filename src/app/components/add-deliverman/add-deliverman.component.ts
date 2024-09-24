@@ -9,6 +9,9 @@ import { Router, RouterLink } from '@angular/router';
 import { OrdersService } from '../shared/services/orders.service';
 import { GroupsService } from '../shared/services/groups.service';
 import { RegionService } from '../shared/services/region.service';
+import { ToastrService } from 'ngx-toastr';
+import { UsersService } from '../shared/services/users.service';
+import { IBranches } from '../shared/Interfaces/ibranches';
 
 @Component({
   selector: 'app-add-deliverman',
@@ -22,38 +25,51 @@ export class AddDelivermanComponent implements OnInit {
     private _FormBuilder: FormBuilder,
     private _Router: Router,
     private _GroupsService: GroupsService,
-    private _RegionService: RegionService
+    private _RegionService: RegionService,
+    private _ToastrService: ToastrService,
+    private _UsersService: UsersService
   ) {}
 
   deliveryForm!: FormGroup;
-  branches: string[] = [];
-  governrates: string[] = [];
+  branches: IBranches[] = [];
+  governrates: { id: number; name: string }[] = [];
 
   ngOnInit(): void {
     this._GroupsService.getBranches().subscribe({
       next: (response) => {
-        this.branches = response;
+        this.branches = response.data;
       },
     });
     this._RegionService.getAllGovernrates().subscribe({
       next: (response) => {
-        this.governrates = response;
+        this.governrates = response.data;
       },
     });
     this.deliveryForm = this._FormBuilder.group({
-      deliveryName: ['', Validators.required],
+      name: ['', Validators.required],
       phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       address: ['', Validators.required],
-      branch: [this.branches[0], Validators.required],
-      governrate: [this.governrates[0], Validators.required],
-      companyPer: [0],
+      branch_id: ['', Validators.required],
+      governorate_id: ['', Validators.required],
+      discount_type: ['Percentage', Validators.required],
+      company_per: ['3%', Validators.required],
+      role: ['delivery_man', Validators.required],
     });
   }
   handleForm() {
     if (this.deliveryForm.valid) {
-      console.log(this.deliveryForm.value);
+      this._UsersService.addEmployee(this.deliveryForm.value).subscribe({
+        next: (res) => {
+          this._ToastrService.success(res.message, 'Shipping Company');
+          // console.log(res);
+        },
+        error: (err) => {
+          this._ToastrService.error(err.error.message, 'Shipping Company');
+          console.log(err);
+        },
+      });
       this._Router.navigate(['/home']);
     } else {
       this.deliveryForm.markAllAsTouched();

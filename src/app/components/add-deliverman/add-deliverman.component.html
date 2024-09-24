@@ -10,15 +10,15 @@
             type="text"
             class="form-control"
             id="deliveryName"
-            formControlName="deliveryName"
+            formControlName="name"
             placeholder="Delivery Name"
             #inputDeliveryName
           />
-          @if ( deliveryForm.get('deliveryName')?.errors &&
-          (deliveryForm.get('deliveryName')?.touched ||
-          inputDeliveryName.value.length > 0) ) {
+          @if ( deliveryForm.get('name')?.errors &&
+          (deliveryForm.get('name')?.touched || inputDeliveryName.value.length >
+          0) ) {
           <div class="alert alert-danger mt-2">
-            @if (deliveryForm.get('deliveryName')?.getError('required')) {
+            @if (deliveryForm.get('name')?.getError('required')) {
             <p>Deliveryman Name Required</p>
             }
           </div>
@@ -121,10 +121,10 @@
             name="branch"
             class="form-select"
             id="branch"
-            formControlName="branch"
+            formControlName="branch_id"
           >
             @for (branch of branches; track $index) {
-            <option [value]="branch">{{ branch }}</option>
+            <option [value]="branch.id">{{ branch.name }}</option>
             }
           </select>
         </div>
@@ -135,45 +135,68 @@
             name="governrate"
             id="governrate"
             class="form-select"
-            formControlName="governrate"
+            formControlName="governorate_id"
+            #inputgovernorate
           >
             @for (governrate of governrates; track $index) {
-            <option [value]="governrate">{{ governrate }}</option>
+            <option [value]="governrate.id">{{ governrate.name }}</option>
             }
           </select>
+          @if ( deliveryForm.get('discount_type')?.errors &&
+          (deliveryForm.get('discount_type')?.touched ||
+          inputgovernorate.value.length > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('discount_type')?.getError('required')) {
+            <p>Discount Type Required</p>
+            }
+          </div>
+          }
         </div>
 
         <div class="col-md-6">
-          <label for="Discount Type">Discount Type</label>
+          <label for="Discount Type" class="form-label">Discount Type</label>
           <input
-            list="discount_list"
-            placeholder="Choose Employee Discount Type"
-            id="Discount Type"
+            type="text"
+            class="form-control"
             name="Discount Type"
-            onkeydown="return false;"
-            autocomplete="off"
+            readonly
+            id="discount_type"
+            formControlName="discount_type"
+            #inputdescountType
           />
-          <datalist id="discount_list">
-            <option value="value"></option>
-            <option value="crdit"></option>
-            <option value="Permun"></option>
-            <option value="AAIB"></option>
-            <option value="CIB"></option>
-          </datalist>
+          @if ( deliveryForm.get('discount_type')?.errors &&
+          (deliveryForm.get('discount_type')?.touched ||
+          inputdescountType.value.length > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('discount_type')?.getError('required')) {
+            <p>Discount Type Required</p>
+            }
+          </div>
+          }
         </div>
 
         <div class="col-md-6">
-          <label for="Company Per">Company Per</label>
+          <label for="Company Per" class="form-label">Company Percentage</label>
           <input
-            type="number"
+            type="text"
             max="100"
             class="form-control"
-            id="Company Per"
-            formControlName="companyPer"
-            placeholder="Enter Percentage"
+            readonly
+            id="company_per"
+            formControlName="company_per"
             #inputCompanyPer
+            placeholder="Enter Percentage"
             name="Company Per"
           />
+          @if ( deliveryForm.get('company_per')?.errors &&
+          (deliveryForm.get('company_per')?.touched ||
+          inputCompanyPer.value.length > 0) ) {
+          <div class="alert alert-danger mt-2">
+            @if (deliveryForm.get('company_per')?.getError('required')) {
+            <p>Company Percentage Required</p>
+            }
+          </div>
+          }
         </div>
       </div>
       <div class="pt-3 d-flex justify-content-end">
