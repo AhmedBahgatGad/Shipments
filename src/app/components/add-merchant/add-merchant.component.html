@@ -32,13 +32,13 @@
             class="form-control"
             id="userName"
             formControlName="username"
-            #inputMerchantName
+            #inputUserName
             placeholder="Enter User Name"
             name="username"
           />
           @if ( merchantForm.get('username')?.errors &&
           (merchantForm.get('username')?.touched ||
-          inputMerchantName.value.length > 0) ) {
+          inputUserName.value.length > 0) ) {
           <div class="alert alert-danger mt-2">
             @if (merchantForm.get('username')?.getError('required')) {
             <p>User Name Required</p>
