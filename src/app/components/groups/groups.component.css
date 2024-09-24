@@ -17,6 +17,9 @@ input {
 .dropdown-toggle::after {
   display: none;
 }
+i{
+  cursor: pointer;
+}
 
 .container-fluid.rounded-4 {
   background-color: #ffffff;

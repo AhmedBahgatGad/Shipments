@@ -12,7 +12,9 @@ input {
   border: 1px solid rgba(255, 255, 255, 0.4);
   max-width: 250px;
 }
-
+i{
+  cursor: pointer;
+}
 input[list] {
   cursor: pointer;
   caret-color: transparent;
