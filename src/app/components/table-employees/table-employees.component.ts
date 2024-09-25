@@ -1,11 +1,12 @@
 import { FormsModule } from '@angular/forms';
 import { UsersService } from './../shared/services/users.service';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-table-employees',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './table-employees.component.html',
   styleUrl: './table-employees.component.css',
 })
