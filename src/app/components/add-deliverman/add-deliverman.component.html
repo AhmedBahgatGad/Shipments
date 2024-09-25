@@ -24,6 +24,7 @@
           </div>
           }
         </div>
+
         <div class="col-md-6">
           <label for="name">User Name</label>
           <input
@@ -172,6 +173,7 @@
           </div>
           }
         </div>
+
         <div class="col-md-6">
           <label for="group" class="form-label">Group : </label>
           <select
@@ -186,8 +188,8 @@
             }
           </select>
           @if ( deliveryForm.get('group_id')?.errors &&
-          (deliveryForm.get('group_id')?.touched ||
-          inputgroup.value.length > 0) ) {
+          (deliveryForm.get('group_id')?.touched || inputgroup.value.length > 0)
+          ) {
           <div class="alert alert-danger mt-2">
             @if (deliveryForm.get('group_id')?.getError('required')) {
             <p>Discount Type Required</p>

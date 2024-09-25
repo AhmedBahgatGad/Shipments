@@ -57,6 +57,7 @@ export class AddDelivermanComponent implements OnInit {
         console.log(err);
       },
     });
+
     this.deliveryForm = this._FormBuilder.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
@@ -64,31 +65,26 @@ export class AddDelivermanComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       address: ['', Validators.required],
-      role: ['delivery_man', Validators.required],
+      // role: ['delivery_man', Validators.required],
       branch_id: ['', Validators.required],
       governorate_id: ['', Validators.required],
       discount_type: ['Percentage', Validators.required],
       company_per: ['3%', Validators.required],
       role: ['delivery_man', Validators.required],
+      group_id: ['', Validators.required],
     });
   }
   handleForm() {
+    let toastr = this._ToastrService;
     if (this.deliveryForm.valid) {
-      this._UsersService.addEmployee(this.deliveryForm.value).subscribe({
-        next: (res) => {
-          console.log(res);
-
-          this._ToastrService.success(res.message, 'Shipping Company');
-          // console.log(res);
+      this._UsersService.addMerchant(this.deliveryForm.value).subscribe({
+        next(response) {
+          toastr.success(response.message, 'Shipping Company');
         },
-        error: (err) => {
-          console.log(this.deliveryForm.value);
-          this._ToastrService.error(err.error.message, 'Shipping Company');
+        error(err) {
           console.log(err);
         },
       });
-    } else {
-      this.deliveryForm.markAllAsTouched();
     }
   }
 }

@@ -1,4 +1,4 @@
-import { jwtDecode } from 'jwt-decode';
+// import { jwtDecode } from 'jwt-decode';
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../shared/services/orders.service';
 import {
@@ -15,7 +15,6 @@ import { RegionService } from '../shared/services/region.service';
 import { IBranches } from '../shared/Interfaces/ibranches';
 import { IOrder } from '../shared/Interfaces/iorder';
 import { UsersService } from '../shared/services/users.service';
-
 
 @Component({
   selector: 'app-add-order',
@@ -52,9 +51,6 @@ export class AddOrderComponent implements OnInit {
   products!: FormArray;
   orderForm!: FormGroup;
   ngOnInit(): void {
-    
-
-
     this._RegionService.getAllGovernrates().subscribe({
       next: (response) => {
         this.governrates = response.data;
@@ -86,7 +82,7 @@ export class AddOrderComponent implements OnInit {
       city_id: ['', Validators.required],
       village: [''],
       toVillage: [false],
-      status:['pending'],
+      status: ['pending'],
       shippingType: ['', Validators.required],
       paymentType: ['', Validators.required],
       branch_id: ['', Validators.required],
