@@ -109,7 +109,18 @@
           </div>
         </ng-template>
       </owl-carousel-o>
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div id="chart">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [stroke]="chartOptions.stroke"
+          [tooltip]="chartOptions.tooltip"
+          [dataLabels]="chartOptions.dataLabels"
+        ></apx-chart>
+      </div>
+    </div>
   </div>
   <div class="container-fluid tab bg-white p-4 rounded-4 shadow">
     <div class="row">

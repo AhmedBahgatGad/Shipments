@@ -53,6 +53,13 @@ export class AddOrderComponent implements OnInit {
   orderForm!: FormGroup;
   ngOnInit(): void {
     
+    /* const token = localStorage.getItem('token')
+    if(token != null){
+      console.log(token);
+      
+      const decoded = jwtDecode(token)
+      console.log(decoded);
+    } */
 
 
     this._RegionService.getAllGovernrates().subscribe({
