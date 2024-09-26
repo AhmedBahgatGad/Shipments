@@ -1,5 +1,7 @@
 <div class="container">
-  <h1 class="mt-4 mb-2 ms-3 fs-1">Add Order</h1>
+  <h1 class="mt-4 mb-2 ms-3 fs-1">
+    {{ isEditMode ? "Update Order" : "Add Order" }}
+  </h1>
 
   <div class="container rounded-4 p-5 m-auto bg-white shadow">
     <form [formGroup]="orderForm" (ngSubmit)="handleForm()">
@@ -54,7 +56,7 @@
           <label for="phone1" class="form-label">Phone Number :</label>
           <input
             #phone1
-            type="number"
+            type="text"
             class="form-control"
             id="phone1"
             formControlName="phone1"
@@ -225,7 +227,8 @@
             }
           </select>
           @if (orderForm.get("branch_id")?.errors &&
-          (orderForm.get("branch_id")?.touched || inputBranch.value.length > 0)) {
+          (orderForm.get("branch_id")?.touched || inputBranch.value.length > 0))
+          {
           <div class="alert alert-danger">
             @if (orderForm.get("branch_id")?.getError("required")) {
             <p>Branch Required</p>
@@ -343,16 +346,16 @@
           <label for="merchantPhone" class="form-label">Phone Number :</label>
           <input
             #merchantPhone
-            type="number"
+            type="text"
             class="form-control"
             id="merchantPhone"
-            formControlName="merchantPhone"
+            formControlName="trader_phone"
           />
-          @if ( orderForm.get('merchantPhone')?.errors &&
-          (orderForm.get('merchantPhone')?.touched || merchantPhone.value.length
+          @if ( orderForm.get('trader_phone')?.errors &&
+          (orderForm.get('trader_phone')?.touched || merchantPhone.value.length
           > 0) ) {
           <div class="alert alert-danger mt-2">
-            @if (orderForm.get('merchantPhone')?.getError('required')) {
+            @if (orderForm.get('trader_phone')?.getError('required')) {
             <p>Merchant Phone Required</p>
             }
           </div>
@@ -366,13 +369,13 @@
             type="text"
             class="form-control"
             id="merchantAddress"
-            formControlName="merchantAddress"
+            formControlName="trader_address"
           />
-          @if ( orderForm.get('merchantAddress')?.errors &&
-          (orderForm.get('merchantAddress')?.touched ||
+          @if ( orderForm.get('trader_address')?.errors &&
+          (orderForm.get('trader_address')?.touched ||
           merchantAddress.value.length > 0) ) {
           <div class="alert alert-danger mt-2">
-            @if (orderForm.get('merchantAddress')?.getError('required')) {
+            @if (orderForm.get('trader_address')?.getError('required')) {
             <p>Merchant Address Required</p>
             }
           </div>
@@ -380,7 +383,9 @@
         </div>
       </div>
       <div class="d-flex justify-content-end">
-        <button type="submit" class="btn">Submit</button>
+        <button type="submit" class="btn">
+          {{ isEditMode ? "Update Order" : "Add Order" }}
+        </button>
       </div>
     </form>
   </div>

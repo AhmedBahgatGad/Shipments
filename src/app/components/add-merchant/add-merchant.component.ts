@@ -22,7 +22,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddMerchantComponent implements OnInit {
   isEditMode = false;
-  merchantId: number | null =null;
+  merchantId: number | null = null;
   merchantForm!: FormGroup;
   branches: IBranches[] = [];
   governrates: string[] = [];
@@ -34,16 +34,15 @@ export class AddMerchantComponent implements OnInit {
     private _UsersService: UsersService,
     private _OrdersService: OrdersService,
     private _RegionService: RegionService,
-    private _ActivatedRoute:ActivatedRoute
+    private _ActivatedRoute: ActivatedRoute
   ) {}
   ngOnInit(): void {
-
-    this._ActivatedRoute.paramMap.subscribe(params => {
+    this._ActivatedRoute.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
         this.merchantId = +id;
         this.isEditMode = true;
-        this.loadMerchantData(this.merchantId);  // Load employee data for update
+        this.loadMerchantData(this.merchantId); // Load employee data for update
       }
     });
 
@@ -80,20 +79,20 @@ export class AddMerchantComponent implements OnInit {
   }
 
   loadMerchantData(id: number) {
-    this._UsersService.getUserById(id).subscribe(merchant => {
-      this.merchantForm.patchValue(merchant); 
+    this._UsersService.getUserById(id).subscribe((merchant) => {
+      this.merchantForm.patchValue(merchant);
     });
   }
 
   handleForm() {
-    if(this.isEditMode){
-      this.updateMerchant()
-    }else{
-      this.addMerchant()
+    if (this.isEditMode) {
+      this.updateMerchant();
+    } else {
+      this.addMerchant();
     }
-    this._Router.navigate(['merchant'])
+    this._Router.navigate(['merchant']);
   }
-  addMerchant():void {
+  addMerchant(): void {
     let toastr = this._ToastrService;
     if (this.merchantForm.valid) {
       this._UsersService.addMerchant(this.merchantForm.value).subscribe({
@@ -106,17 +105,19 @@ export class AddMerchantComponent implements OnInit {
       });
     }
   }
-  updateMerchant():void{
+  updateMerchant(): void {
     if (this.merchantForm.valid) {
-      this._UsersService.updateEmployee(this.merchantId!,this.merchantForm.value).subscribe({
-        next: (res) => {
-          this._ToastrService.success(res.message, 'Shipping Company');
-        },
-        error: (err) => {
-          this._ToastrService.error(err.error.message, 'Shipping Company');
-          console.log(err);
-        },
-      });
+      this._UsersService
+        .updateEmployee(this.merchantId!, this.merchantForm.value)
+        .subscribe({
+          next: (res) => {
+            this._ToastrService.success(res.message, 'Shipping Company');
+          },
+          error: (err) => {
+            this._ToastrService.error(err.error.message, 'Shipping Company');
+            console.log(err);
+          },
+        });
     } else {
       this.merchantForm.markAllAsTouched();
     }

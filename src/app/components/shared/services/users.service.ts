@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UsersService {
-  constructor(private _HttpClient: HttpClient) { }
+  constructor(private _HttpClient: HttpClient) {}
 
   token = localStorage.getItem('token');
 
@@ -51,7 +51,9 @@ export class UsersService {
     });
   }
   getUserById(id: number): Observable<any> {
-    return this._HttpClient.get(`http://127.0.0.1:8000/api/users/${id}`, { headers: this.myHeaders })
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/users/${id}`, {
+      headers: this.myHeaders,
+    });
   }
   addMerchant(data: object): Observable<any> {
     return this._HttpClient.post('http://127.0.0.1:8000/api/users', data, {
@@ -64,14 +66,20 @@ export class UsersService {
       headers: this.myHeaders,
     });
   }
-  updateEmployee(id:number, data: object): Observable<any> {
-    return this._HttpClient.put(`http://127.0.0.1:8000/api/users/${id}`,data,{
-      headers:this.myHeaders
-    })
+  updateEmployee(id: number, data: object): Observable<any> {
+    return this._HttpClient.put(`http://127.0.0.1:8000/api/users/${id}`, data, {
+      headers: this.myHeaders,
+    });
   }
 
   addDeliveryMan(data: object): Observable<any> {
     return this._HttpClient.post('http://127.0.0.1:8000/api/users', data, {
+      headers: this.myHeaders,
+    });
+  }
+
+  getUser(): Observable<any> {
+    return this._HttpClient.get('http://127.0.0.1:8000/api/user', {
       headers: this.myHeaders,
     });
   }

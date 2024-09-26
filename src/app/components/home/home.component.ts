@@ -12,8 +12,8 @@ import {
   ApexXAxis,
   ApexDataLabels,
   ApexTooltip,
-  ApexStroke
-} from "ng-apexcharts";
+  ApexStroke,
+} from 'ng-apexcharts';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -27,7 +27,12 @@ export type ChartOptions = {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [BlankLayoutComponent, AuthLayoutComponent, CarouselModule, NgApexchartsModule],
+  imports: [
+    BlankLayoutComponent,
+    AuthLayoutComponent,
+    CarouselModule,
+    NgApexchartsModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -59,13 +64,14 @@ export class HomeComponent implements OnInit {
     nav: true,
   };
   ordersData: {
-    trackingNumber: number;
-    date: string;
-    clientName: string;
-    governrate: string;
-    city: string;
-    cost: number;
+    id: number;
     status: string;
+    weight: number;
+    created_date: string;
+    clientName: string;
+    email: string;
+    phone1: string;
+    cost: number;
     phone: number;
   }[] = [];
   slide1: ICards[] = [
@@ -144,44 +150,44 @@ export class HomeComponent implements OnInit {
     this.chartOptions = {
       series: [
         {
-          name: "series1",
-          data: [31, 40, 28, 51, 42, 109, 100]
+          name: 'series1',
+          data: [31, 40, 28, 51, 42, 109, 100],
         },
         {
-          name: "series2",
-          data: [11, 32, 45, 32, 34, 52, 41]
-        }
+          name: 'series2',
+          data: [11, 32, 45, 32, 34, 52, 41],
+        },
       ],
       chart: {
         height: 350,
-        type: "area"
+        type: 'area',
       },
       dataLabels: {
-        enabled: false
+        enabled: false,
       },
       stroke: {
-        curve: "smooth"
+        curve: 'smooth',
       },
       xaxis: {
-        type: "datetime",
+        type: 'datetime',
         categories: [
-          "2018-09-19T00:00:00.000Z",
-          "2018-09-19T01:30:00.000Z",
-          "2018-09-19T02:30:00.000Z",
-          "2018-09-19T03:30:00.000Z",
-          "2018-09-19T04:30:00.000Z",
-          "2018-09-19T05:30:00.000Z",
-          "2018-09-19T06:30:00.000Z"
-        ]
+          '2018-09-19T00:00:00.000Z',
+          '2018-09-19T01:30:00.000Z',
+          '2018-09-19T02:30:00.000Z',
+          '2018-09-19T03:30:00.000Z',
+          '2018-09-19T04:30:00.000Z',
+          '2018-09-19T05:30:00.000Z',
+          '2018-09-19T06:30:00.000Z',
+        ],
       },
       tooltip: {
         x: {
-          format: "dd/MM/yy HH:mm"
-        }
-      }
+          format: 'dd/MM/yy HH:mm',
+        },
+      },
     };
   }
-  public generateData(baseval:any, count:any, yrange:any) {
+  public generateData(baseval: any, count: any, yrange: any) {
     var i = 0;
     var series = [];
     while (i < count) {
@@ -199,11 +205,9 @@ export class HomeComponent implements OnInit {
 
   filteredData = [...this.ordersData];
   ngOnInit(): void {
-    
-
     this._OrdersService.getAllOrders().subscribe({
       next: (response) => {
-        this.ordersData = response;
+        this.ordersData = response.data;
         this.filteredData = [...this.ordersData];
       },
     });

@@ -60,9 +60,11 @@
           <i
             class="fa-solid fa-pen-to-square fa-lg"
             style="color: #198754ba"
+            [routerLink]="['/editorder/', item.id]"
           ></i>
           <i
             class="fa-solid fa-trash-arrow-up fa-lg"
+            (click)="delete(item.id)"
             style="color: var(--third-color)"
           ></i>
           <i

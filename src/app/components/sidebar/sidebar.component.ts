@@ -6,31 +6,29 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink,RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css'
+  styleUrl: './sidebar.component.css',
 })
-export class SidebarComponent{
-  constructor(private _UsersService:UsersService) {}
-  user:IUser={
-    id:0,
-    name :'',
-    email :'',
-    password:'',
-    role:''
+export class SidebarComponent {
+  constructor(private _UsersService: UsersService) {}
+  user: IUser = {
+    id: 0,
+    name: '',
+    email: '',
+    password: '',
+    role: '',
   };
   ngOnInit(): void {
-    this._UsersService.getUserData().subscribe({
-      next:(respone)=>{
-        this.user = respone;
+    this._UsersService.getUser().subscribe({
+      next: (response) => {
+        this.user = response;
+        console.log(response);
       },
-      error:(err)=>{
-        
-      }
-    })
-    
+      error: (err) => {},
+    });
   }
-logOut():void{
-  localStorage.clear();
-}
+  logOut(): void {
+    localStorage.clear();
+  }
 }

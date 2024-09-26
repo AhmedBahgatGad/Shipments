@@ -2,114 +2,93 @@
   <h1>Shipping List</h1>
   <p>Providing flexible, Improved service levels, and accelerated delivery</p>
   <div class="row">
-      <owl-carousel-o [options]="customOptions" class="col-md-8">
-        <ng-template carouselSlide>
-          <div class="row g-2">
-            @for (slide of slide1; track $index) {
-            <div class="col-md-6">
-              <div class="card rounded-4">
-                <div class="card-body">
-                  <div
-                    class="d-flex align-items-center justify-content-between"
+    <owl-carousel-o [options]="customOptions" class="col-md-6">
+      <ng-template carouselSlide>
+        <div class="row g-2">
+          @for (slide of slide1; track $index) {
+          <div class="col-md-6">
+            <div class="card rounded-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h4 class="card-title fs-4">{{ slide.title }}</h4>
+                  <i [class]="slide.icon"></i>
+                </div>
+                <span class="card-text d-block fs-3 fw-bold mb-3">
+                  {{ slide.count }}
+                </span>
+                <div class="d-flex align-items-center justify-content-between">
+                  <p class="mb-0">+{{ slide.total }} last month</p>
+                  <a
+                    href="#"
+                    class="btn"
+                    style="background-color: var(--primary-color); color: white"
+                    >See More..</a
                   >
-                    <h4 class="card-title fs-4">{{ slide.title }}</h4>
-                    <i [class]="slide.icon"></i>
-                  </div>
-                  <span class="card-text d-block fs-3 fw-bold mb-3">
-                    {{ slide.count }}
-                  </span>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <p class="mb-0">+{{ slide.total }} last month</p>
-                    <a
-                      href="#"
-                      class="btn"
-                      style="
-                        background-color: var(--primary-color);
-                        color: white;
-                      "
-                      >See More..</a
-                    >
-                  </div>
                 </div>
               </div>
             </div>
-            }
           </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="row g-2">
-            @for (slide of slide2; track $index) {
-            <div class="col-md-6">
-              <div class="card rounded-4">
-                <div class="card-body">
-                  <div
-                    class="d-flex align-items-center justify-content-between"
+          }
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="row g-2">
+          @for (slide of slide2; track $index) {
+          <div class="col-md-6">
+            <div class="card rounded-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h4 class="card-title fs-4">{{ slide.title }}</h4>
+                  <i [class]="slide.icon"></i>
+                </div>
+                <span class="card-text d-block fs-3 fw-bold mb-3">
+                  {{ slide.count }}
+                </span>
+                <div class="d-flex align-items-center justify-content-between">
+                  <p class="mb-0">+{{ slide.total }} last month</p>
+                  <a
+                    href="#"
+                    class="btn"
+                    style="background-color: var(--primary-color); color: white"
+                    >See More..</a
                   >
-                    <h4 class="card-title fs-4">{{ slide.title }}</h4>
-                    <i [class]="slide.icon"></i>
-                  </div>
-                  <span class="card-text d-block fs-3 fw-bold mb-3">
-                    {{ slide.count }}
-                  </span>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <p class="mb-0">+{{ slide.total }} last month</p>
-                    <a
-                      href="#"
-                      class="btn"
-                      style="
-                        background-color: var(--primary-color);
-                        color: white;
-                      "
-                      >See More..</a
-                    >
-                  </div>
                 </div>
               </div>
             </div>
-            }
           </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="row g-2">
-            @for (slide of slide3; track $index) {
-            <div class="col-md-6">
-              <div class="card rounded-4">
-                <div class="card-body">
-                  <div
-                    class="d-flex align-items-center justify-content-between"
+          }
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="row g-2">
+          @for (slide of slide3; track $index) {
+          <div class="col-md-6">
+            <div class="card rounded-4">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h4 class="card-title fs-4">{{ slide.title }}</h4>
+                  <i [class]="slide.icon"></i>
+                </div>
+                <span class="card-text d-block fs-3 fw-bold mb-3">
+                  {{ slide.count }}
+                </span>
+                <div class="d-flex align-items-center justify-content-between">
+                  <p class="mb-0">+{{ slide.total }} last month</p>
+                  <a
+                    href="#"
+                    class="btn"
+                    style="background-color: var(--primary-color); color: white"
+                    >See More..</a
                   >
-                    <h4 class="card-title fs-4">{{ slide.title }}</h4>
-                    <i [class]="slide.icon"></i>
-                  </div>
-                  <span class="card-text d-block fs-3 fw-bold mb-3">
-                    {{ slide.count }}
-                  </span>
-                  <div
-                    class="d-flex align-items-center justify-content-between"
-                  >
-                    <p class="mb-0">+{{ slide.total }} last month</p>
-                    <a
-                      href="#"
-                      class="btn"
-                      style="
-                        background-color: var(--primary-color);
-                        color: white;
-                      "
-                      >See More..</a
-                    >
-                  </div>
                 </div>
               </div>
             </div>
-            }
           </div>
-        </ng-template>
-      </owl-carousel-o>
-    <div class="col-md-4">
+          }
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+    <div class="col-md-6">
       <div id="chart">
         <apx-chart
           [series]="chartOptions.series"
@@ -146,8 +125,8 @@
             <th>Tracking Number</th>
             <th>Date</th>
             <th>Client Data</th>
-            <th>Governrate</th>
-            <th>City</th>
+            <th>Email</th>
+            <th>Phone</th>
             <th>Cost</th>
             <th class="border-right">Status</th>
           </tr>
@@ -156,14 +135,14 @@
           @for (order of filteredData; track $index) {
           <tr>
             <td>{{ $index }}</td>
-            <td>{{ order.trackingNumber }}</td>
-            <td>{{ order.date }}</td>
+            <td>{{ order.id }}</td>
+            <td>{{ order.created_date }}</td>
             <td>
               {{ order.clientName }}
               <p>{{ order.phone }}</p>
             </td>
-            <td>{{ order.governrate }}</td>
-            <td>{{ order.city }}</td>
+            <td>{{ order.email }}</td>
+            <td>{{ order.phone1 }}</td>
             <td>{{ order.cost }}$</td>
             <td>{{ order.status }}</td>
           </tr>

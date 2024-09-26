@@ -68,9 +68,9 @@ export class AddDelivermanComponent implements OnInit {
       // role: ['delivery_man', Validators.required],
       branch_id: ['', Validators.required],
       governorate_id: ['', Validators.required],
-      discount_type: ['Percentage', Validators.required],
-      company_per: ['3%', Validators.required],
-      role: ['delivery_man', Validators.required],
+      discount_type: ['5%', Validators.required],
+      company_per: ['3', Validators.required],
+      role: ['delivery_man'],
       group_id: ['', Validators.required],
     });
   }
